@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, ServerCog, Lightbulb, Microchip, MessageSquare, FlaskConical, Check, Calendar, Download } from 'lucide-react';
+import { Code, ServerCog, Lightbulb, Microchip, MessageSquare, FlaskConical, Check, Calendar, Download, ArrowRight, TrendingUp, Brain, Rocket } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Badge } from '@/components/ui/badge';
 
 const services = [
   {
@@ -8,6 +10,9 @@ const services = [
     title: 'LLM Development',
     description: 'Custom Large Language Model architecture design, implementation, and optimization for domain-specific applications and enterprise use cases.',
     features: ['Custom Model Architecture', 'Performance Optimization', 'Scalable Deployment'],
+    detailedDescription: 'Build powerful language models tailored to your unique business needs. We specialize in developing custom LLMs from scratch or adapting existing architectures like GPT, BERT, and T5 for your specific domain.',
+    useCases: ['Industry-specific chatbots', 'Document analysis systems', 'Code generation tools', 'Automated content creation'],
+    stats: { performance: '95%', speed: '10x', cost: '60%' },
     color: 'blue',
   },
   {
@@ -15,6 +20,9 @@ const services = [
     title: 'Model Training & Fine-tuning',
     description: 'Advanced training techniques and fine-tuning services to adapt pre-trained models for specific business requirements and improved performance.',
     features: ['Transfer Learning', 'Domain Adaptation', 'Performance Tuning'],
+    detailedDescription: 'Maximize the potential of existing AI models through expert fine-tuning and optimization. We use state-of-the-art techniques including LoRA, QLoRA, and full parameter fine-tuning.',
+    useCases: ['Medical diagnosis models', 'Legal document processing', 'Financial analysis systems', 'Customer service automation'],
+    stats: { accuracy: '98%', training: '5x', deployment: '24hr' },
     color: 'purple',
   },
   {
@@ -22,6 +30,9 @@ const services = [
     title: 'AI Strategy Consulting',
     description: 'Strategic guidance on AI implementation, technology selection, and roadmap development to maximize ROI and competitive advantage.',
     features: ['Technology Assessment', 'Implementation Roadmap', 'ROI Optimization'],
+    detailedDescription: 'Navigate the complex AI landscape with expert guidance. We help you identify opportunities, select the right technologies, and create implementation roadmaps that deliver measurable results.',
+    useCases: ['Digital transformation', 'Process automation', 'Competitive analysis', 'Innovation planning'],
+    stats: { roi: '300%', time: '50%', success: '90%' },
     color: 'emerald',
   },
   {
@@ -29,6 +40,9 @@ const services = [
     title: 'Small Language Models',
     description: 'Efficient, lightweight language models optimized for specific tasks and resource-constrained environments without compromising performance.',
     features: ['Lightweight Architecture', 'Edge Deployment', 'Cost-Effective Solutions'],
+    detailedDescription: 'Deploy AI at the edge with our specialized small language models. Perfect for mobile applications, IoT devices, and environments where computational resources are limited.',
+    useCases: ['Mobile AI assistants', 'Edge computing', 'Real-time processing', 'Embedded systems'],
+    stats: { size: '100MB', latency: '<100ms', efficiency: '80%' },
     color: 'indigo',
   },
   {
@@ -36,6 +50,9 @@ const services = [
     title: 'NLP Solutions',
     description: 'Comprehensive natural language processing solutions including sentiment analysis, entity extraction, and conversational AI systems.',
     features: ['Sentiment Analysis', 'Entity Recognition', 'Text Classification'],
+    detailedDescription: 'Transform unstructured text into actionable insights with our advanced NLP solutions. From sentiment analysis to complex entity extraction, we cover the full spectrum of language understanding.',
+    useCases: ['Social media monitoring', 'Customer feedback analysis', 'Document classification', 'Information extraction'],
+    stats: { languages: '50+', accuracy: '96%', processing: '1M/day' },
     color: 'rose',
   },
   {
@@ -43,6 +60,9 @@ const services = [
     title: 'Research & Development',
     description: 'Cutting-edge AI research, prototyping, and innovation services to explore new frontiers in artificial intelligence and machine learning.',
     features: ['Novel Architectures', 'Algorithm Development', 'Proof of Concepts'],
+    detailedDescription: 'Stay ahead of the curve with our R&D services. We explore emerging AI technologies, develop novel architectures, and create proof-of-concepts that push the boundaries of what\'s possible.',
+    useCases: ['Next-gen AI models', 'Research partnerships', 'Patent development', 'Innovation labs'],
+    stats: { projects: '50+', patents: '15', breakthroughs: '10' },
     color: 'amber',
   },
 ];
@@ -96,39 +116,74 @@ export function ServicesSection() {
             const colors = colorClasses[service.color as keyof typeof colorClasses];
             
             return (
-              <Card 
+              <motion.div
                 key={index}
-                className="group bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-700"
-                data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                <CardHeader>
-                  <div className={`w-16 h-16 ${colors.icon} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="text-white h-8 w-8" />
-                  </div>
-                  <CardTitle className="text-2xl font-bold text-slate-800 dark:text-slate-200">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-slate-600 dark:text-slate-300">
-                        <Check className="text-emerald-500 mr-3 h-4 w-4" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className={`w-full py-3 font-semibold transition-colors duration-200 ${colors.button}`}
-                    data-testid={`button-learn-more-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
+                <Card 
+                  className="group bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-700 h-full relative overflow-hidden"
+                  data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                  <CardHeader>
+                    <div className={`w-16 h-16 ${colors.icon} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+                      <IconComponent className="text-white h-8 w-8" />
+                    </div>
+                    <CardTitle className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+                      {service.title}
+                    </CardTitle>
+                    <CardDescription className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-slate-600 dark:text-slate-300">
+                          <Check className="text-emerald-500 mr-3 h-4 w-4 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {/* Stats badges */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {Object.entries(service.stats).slice(0, 2).map(([key, value]) => (
+                        <Badge 
+                          key={key} 
+                          variant="secondary" 
+                          className="text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
+                        >
+                          {key === 'performance' && '⚡'}
+                          {key === 'accuracy' && '🎯'}
+                          {key === 'roi' && '📈'}
+                          {key === 'size' && '💾'}
+                          {key === 'languages' && '🌍'}
+                          {key === 'projects' && '🚀'}
+                          {key === 'speed' && '🏃'}
+                          {key === 'training' && '🎓'}
+                          {key === 'time' && '⏱️'}
+                          {key === 'latency' && '⚡'}
+                          {key === 'processing' && '⚙️'}
+                          {key === 'patents' && '📜'}
+                          {' '}{value}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <Button 
+                      className={`w-full py-3 font-semibold transition-all duration-200 ${colors.button} group`}
+                      data-testid={`button-learn-more-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      <span>Learn More</span>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
             );
           })}
         </div>

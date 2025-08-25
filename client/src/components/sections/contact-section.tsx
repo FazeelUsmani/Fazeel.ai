@@ -60,7 +60,7 @@ export function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'hello@fazeelai.com',
+      value: 'contact@fazeelai.com',
       color: 'blue',
     },
     {

@@ -83,7 +83,7 @@ export function Footer() {
             <ul className="space-y-2 text-slate-300">
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-blue-400" />
-                <span>hello@fazeelai.com</span>
+                <span>contact@fazeelai.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span>📱</span>

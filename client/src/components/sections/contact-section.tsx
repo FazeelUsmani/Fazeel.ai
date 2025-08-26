@@ -60,7 +60,8 @@ export function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'contact@fazeelai.com',
+      value: 'fazeelusmani18@gmail.com',
+      href: 'mailto:fazeelusmani18@gmail.com',
       color: 'blue',
     },
     {
@@ -122,7 +123,16 @@ export function ContactSection() {
                       </div>
                       <div>
                         <div className="font-semibold text-slate-800 dark:text-slate-200">{item.title}</div>
-                        <div className="text-slate-600 dark:text-slate-300">{item.value}</div>
+                        {'href' in item ? (
+                          <a 
+                            href={item.href} 
+                            className="text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <div className="text-slate-600 dark:text-slate-300">{item.value}</div>
+                        )}
                       </div>
                     </div>
                   );

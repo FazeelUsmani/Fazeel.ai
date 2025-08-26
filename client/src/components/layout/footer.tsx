@@ -23,28 +23,36 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/fazeel-usmani/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200"
                 data-testid="link-social-linkedin"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://github.com/FazeelUsmani" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors duration-200"
                 data-testid="link-social-github"
               >
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
-                className="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors duration-200"
-                data-testid="link-social-google"
+                href="https://x.com/fazeelusmani" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-slate-800 hover:bg-sky-500 rounded-lg flex items-center justify-center transition-colors duration-200"
+                data-testid="link-social-twitter"
               >
-                <FaGoogle className="h-4 w-4" />
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
               </a>
               <a 
-                href="#" 
+                href="mailto:fazeelusmani18@gmail.com" 
                 className="w-10 h-10 bg-slate-800 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors duration-200"
                 data-testid="link-social-email"
               >
@@ -83,7 +91,7 @@ export function Footer() {
             <ul className="space-y-2 text-slate-300">
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-blue-400" />
-                <span>contact@fazeelai.com</span>
+                <a href="mailto:fazeelusmani18@gmail.com" className="hover:text-blue-400 transition-colors">fazeelusmani18@gmail.com</a>
               </li>
               <li className="flex items-center space-x-2">
                 <span>📱</span>

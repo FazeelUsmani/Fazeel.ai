@@ -177,7 +177,9 @@ export function FounderProfileSection() {
             {/* Social Links */}
             <motion.div className="flex flex-wrap gap-3" variants={itemVariants}>
               <motion.a 
-                href="#" 
+                href="https://www.linkedin.com/in/fazeel-usmani/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl"
                 data-testid="link-founder-linkedin"
                 whileHover={{ y: -3 }}
@@ -186,7 +188,9 @@ export function FounderProfileSection() {
                 <Linkedin className="h-5 w-5" />
               </motion.a>
               <motion.a 
-                href="#" 
+                href="https://github.com/FazeelUsmani" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-slate-700 hover:bg-slate-800 text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl"
                 data-testid="link-founder-github"
                 whileHover={{ y: -3 }}
@@ -195,7 +199,9 @@ export function FounderProfileSection() {
                 <Github className="h-5 w-5" />
               </motion.a>
               <motion.a 
-                href="#" 
+                href="https://x.com/fazeelusmani" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-sky-500 hover:bg-sky-600 text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl"
                 data-testid="link-founder-twitter"
                 whileHover={{ y: -3 }}
@@ -204,22 +210,13 @@ export function FounderProfileSection() {
                 <FaTwitter className="h-5 w-5" />
               </motion.a>
               <motion.a 
-                href="#" 
-                className="w-12 h-12 bg-slate-900 hover:bg-black text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl"
-                data-testid="link-founder-medium"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaMedium className="h-5 w-5" />
-              </motion.a>
-              <motion.a 
-                href="#" 
+                href="mailto:fazeelusmani18@gmail.com" 
                 className="w-12 h-12 bg-red-500 hover:bg-red-600 text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl"
-                data-testid="link-founder-google"
+                data-testid="link-founder-email"
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FaGoogle className="h-4 w-4" />
+                <Mail className="h-5 w-5" />
               </motion.a>
             </motion.div>
           </motion.div>

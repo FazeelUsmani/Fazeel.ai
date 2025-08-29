@@ -62,6 +62,96 @@ export function BlogPostPage() {
 
   const estimatedReadTime = Math.ceil(post.content.split(' ').length / 200);
 
+  const renderContent = (content: string) => {
+    const paragraphs = content.split('\n\n');
+    
+    return paragraphs.map((paragraph, index) => {
+      // Handle images
+      if (paragraph.includes('![') && paragraph.includes('](/@assets/')) {
+        const match = paragraph.match(/!\[([^\]]*)\]\(\/@assets\/([^)]+)\)/);
+        if (match) {
+          const [, alt, src] = match;
+          return (
+            <div key={index} className="my-8">
+              <img 
+                src={`/attached_assets/${src}`}
+                alt={alt}
+                className="w-full rounded-lg shadow-lg"
+                onError={(e) => {
+                  console.error('Image failed to load:', `/attached_assets/${src}`);
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
+          );
+        }
+      }
+      
+      // Handle headings
+      if (paragraph.startsWith('# ')) {
+        return (
+          <h1 key={index} className="text-4xl font-bold text-slate-800 dark:text-slate-200 mb-8 mt-12">
+            {paragraph.replace('# ', '')}
+          </h1>
+        );
+      }
+      if (paragraph.startsWith('## ')) {
+        return (
+          <h2 key={index} className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-6 mt-10 border-b border-slate-200 dark:border-slate-700 pb-3">
+            {paragraph.replace('## ', '')}
+          </h2>
+        );
+      }
+      if (paragraph.startsWith('### ')) {
+        return (
+          <h3 key={index} className="text-2xl font-semibold text-slate-800 dark:text-slate-200 mb-4 mt-8">
+            {paragraph.replace('### ', '')}
+          </h3>
+        );
+      }
+      if (paragraph.startsWith('#### ')) {
+        return (
+          <h4 key={index} className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-3 mt-6">
+            {paragraph.replace('#### ', '')}
+          </h4>
+        );
+      }
+      
+      // Handle bullet points
+      if (paragraph.includes('\n- ') || paragraph.startsWith('- ')) {
+        const items = paragraph.split('\n').filter(line => line.trim().startsWith('- '));
+        if (items.length > 0) {
+          return (
+            <ul key={index} className="space-y-3 ml-6 my-6">
+              {items.map((item, itemIndex) => (
+                <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-lg leading-relaxed">
+                  <span dangerouslySetInnerHTML={{
+                    __html: item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+                  }} />
+                </li>
+              ))}
+            </ul>
+          );
+        }
+      }
+      
+      // Handle regular paragraphs
+      if (paragraph.trim() && !paragraph.startsWith('#')) {
+        return (
+          <p 
+            key={index} 
+            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-lg"
+            dangerouslySetInnerHTML={{
+              __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+            }}
+          />
+        );
+      }
+      
+      return null;
+    }).filter(Boolean);
+  };
+
   return (
     <motion.div 
       className="min-h-screen pt-24 pb-20 bg-white dark:bg-slate-900"
@@ -149,45 +239,16 @@ export function BlogPostPage() {
 
         {/* Article Content */}
         <motion.article 
-          className="prose prose-lg dark:prose-invert max-w-none"
+          className="max-w-none"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
           <Card className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <CardContent className="p-8">
-              <div 
-                className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-strong:text-slate-800 dark:prose-strong:text-slate-200 prose-code:text-blue-600 dark:prose-code:text-blue-400 prose-pre:bg-slate-900 dark:prose-pre:bg-slate-950 prose-img:rounded-lg prose-img:shadow-lg"
-                dangerouslySetInnerHTML={{ 
-                  __html: post.content
-                    .replace(/!\[([^\]]*)\]\(\/@assets\/([^)]+)\)/g, `<img src="/@assets/$2" alt="$1" class="w-full rounded-lg shadow-lg my-8" />`)
-                    .replace(/^# /gm, '## ')
-                    .replace(/^## /gm, '### ')
-                    .replace(/^### /gm, '#### ')
-                    .replace(/\n\n/g, '</p><p>')
-                    .replace(/^\* /gm, '<li>')
-                    .replace(/^- /gm, '<li>')
-                    .replace(/<li>/g, '</p><ul><li>')
-                    .replace(/<\/li>\n<li>/g, '</li><li>')
-                    .replace(/<\/li>\n([^<])/g, '</li></ul><p>$1')
-                    .split('\n')
-                    .map(line => {
-                      if (line.startsWith('####')) {
-                        return `<h4 class="text-xl font-semibold mb-4 mt-8">${line.replace('#### ', '')}</h4>`;
-                      } else if (line.startsWith('###')) {
-                        return `<h3 class="text-2xl font-semibold mb-6 mt-10">${line.replace('### ', '')}</h3>`;
-                      } else if (line.startsWith('##')) {
-                        return `<h2 class="text-3xl font-bold mb-8 mt-12">${line.replace('## ', '')}</h2>`;
-                      } else if (line.trim() === '') {
-                        return '<br>';
-                      } else if (!line.includes('<')) {
-                        return `<p class="mb-4">${line}</p>`;
-                      }
-                      return line;
-                    })
-                    .join('')
-                }}
-              />
+            <CardContent className="p-8 lg:p-12">
+              <div className="space-y-6">
+                {renderContent(post.content)}
+              </div>
             </CardContent>
           </Card>
         </motion.article>

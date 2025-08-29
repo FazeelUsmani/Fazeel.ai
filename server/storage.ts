@@ -36,7 +36,7 @@ export class MemStorage implements IStorage {
         excerpt: "Discover how we reduced training costs by 70% while achieving state-of-the-art performance on 175B parameter models using innovative gradient checkpointing, mixed-precision training, and advanced parallelism strategies.",
         content: `# Breaking the 100B Parameter Barrier: Efficient Training Strategies for Ultra-Large Language Models
 
-![AI Training Visualization](/attached_assets/generated_images/AI_training_visualization_3a3fa9e8.png)
+![100 Billion Parameter Training](/attached_assets/image_1756467628235.png)
 
 ## Introduction: Scaling Beyond 100 Billion Parameters
 
@@ -54,7 +54,7 @@ Moreover, the computational throughput and energy costs are staggering. Training
 
 These realities underscore that efficiently training ultra-large models is not just a nicety – it's an absolute necessity for anyone outside a select few tech giants, and even for those giants it's a critical concern for cost and sustainability.
 
-![AI Data Center Training](/attached_assets/generated_images/AI_data_center_training_6bfe1dca.png)
+![High-Performance AI Data Center](/attached_assets/image_1756467641752.png)
 
 ## The Challenges of Training 100B+ Parameter Models
 
@@ -74,7 +74,7 @@ As mentioned, the electricity usage for large-scale training is a growing concer
 
 ## Gradient Checkpointing: Trading Compute for Memory Efficiency
 
-![Gradient Checkpointing Diagram](/attached_assets/generated_images/Gradient_checkpointing_diagram_2abc5910.png)
+![Gradient Checkpointing: Before vs After](/attached_assets/image_1756467612856.png)
 
 One of the most powerful techniques to overcome memory limitations is gradient checkpointing, also known as activation checkpointing or rematerialization. The idea is straightforward: during the forward pass, instead of storing every intermediate activation for the backward pass, we strategically save only a few checkpoints (layers' outputs) and discard the rest. During backpropagation, we recompute the lost activations as needed, rather than retrieving them from memory.
 
@@ -92,6 +92,8 @@ Such savings are a game-changer for ultra-large models. Layers that previously c
 
 ## Mixed-Precision Training: Faster Computation, Lower Memory Footprint
 
+![Mixed Precision Training Workflow](/attached_assets/generated_images/Mixed_precision_training_diagram_f3910288.png)
+
 Another cornerstone of efficient large-scale training is mixed-precision training. Not all numerical calculations in neural network training require full 32-bit floating point precision. By using lower precision representations (such as 16-bit floats), we can significantly reduce memory usage and increase arithmetic speed – all while maintaining model accuracy with proper care.
 
 ### Hardware Acceleration
@@ -105,6 +107,8 @@ Importantly, certain parts of the training process are kept in higher precision 
 - Use loss scaling techniques to prevent gradient underflow
 
 ## Optimized Parallelism: Spanning Multiple GPUs and Nodes
+
+![Distributed Training Parallelism Strategies](/attached_assets/generated_images/Distributed_training_parallelism_d39ec9bf.png)
 
 When a model doesn't fit in the memory of a single accelerator (which is certainly the case for 100B+ models), we must distribute the work across multiple GPUs (or TPUs). The way we parallelize the training can make an enormous difference in efficiency.
 
@@ -127,6 +131,9 @@ In practice, high-performance training of 100B+ models uses a combination of the
 Another path to breaking the 100B barrier is to design models that are sparse or modular, so that not all parameters are active at once. Instead of making the entire model bigger and using it in its entirety, we create models where parts of the network can be selectively used for a given input.
 
 ### Mixture-of-Experts (MoE)
+
+![Mixture of Experts Architecture](/attached_assets/generated_images/Mixture_of_Experts_architecture_75f7e527.png)
+
 One prominent example is Mixture-of-Experts (MoE) architectures, such as Google's Switch Transformer. An MoE model consists of a number of expert sub-models and a gating mechanism that activates only a few experts per input token. Switch Transformer demonstrated a MoE with an astonishing 1.6 trillion parameters – but only a small fraction of those are used for any given data point.
 
 Essentially, they achieved a 160× increase in parameter count at the same training cost, by virtue of sparsity. The benefit was significant accuracy gains: the sparse 1.6T model outperformed a 100B dense model while using similar compute.

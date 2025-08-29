@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { useQuery } from '@tanstack/react-query';
 import { Brain, TrendingUp, BarChart, Rocket, User, ArrowRight } from 'lucide-react';
 import { BlogPost } from '@shared/schema';
+import { Link } from 'wouter';
 
 const categoryIcons = {
   'LLM Research': Brain,
@@ -121,14 +122,16 @@ export function BlogSection() {
                         </div>
                         <span className="text-sm text-slate-600 dark:text-slate-300">{post.author}</span>
                       </div>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
-                        data-testid={`button-read-more-${index}`}
-                      >
-                        Read More <ArrowRight className="ml-1 h-4 w-4" />
-                      </Button>
+                      <Link href={`/blog/${post.id}`}>
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
+                          data-testid={`button-read-more-${index}`}
+                        >
+                          Read More <ArrowRight className="ml-1 h-4 w-4" />
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>

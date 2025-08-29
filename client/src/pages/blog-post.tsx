@@ -67,8 +67,8 @@ export function BlogPostPage() {
     
     return paragraphs.map((paragraph, index) => {
       // Handle images
-      if (paragraph.includes('![') && paragraph.includes('](/@assets/')) {
-        const match = paragraph.match(/!\[([^\]]*)\]\(\/@assets\/([^)]+)\)/);
+      if (paragraph.includes('![') && paragraph.includes('](/attached_assets/')) {
+        const match = paragraph.match(/!\[([^\]]*)\]\(\/attached_assets\/([^)]+)\)/);
         if (match) {
           const [, alt, src] = match;
           return (
@@ -124,7 +124,7 @@ export function BlogPostPage() {
           return (
             <ul key={index} className="space-y-3 ml-6 my-6">
               {items.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-lg leading-relaxed">
+                <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
                   <span dangerouslySetInnerHTML={{
                     __html: item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
                   }} />
@@ -140,7 +140,7 @@ export function BlogPostPage() {
         return (
           <p 
             key={index} 
-            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-lg"
+            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}

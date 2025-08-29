@@ -36,7 +36,7 @@ export class MemStorage implements IStorage {
         excerpt: "Discover how we reduced training costs by 70% while achieving state-of-the-art performance on 175B parameter models using innovative gradient checkpointing, mixed-precision training, and advanced parallelism strategies.",
         content: `# Breaking the 100B Parameter Barrier: Efficient Training Strategies for Ultra-Large Language Models
 
-![AI Training Visualization](/@assets/generated_images/AI_training_visualization_3a3fa9e8.png)
+![AI Training Visualization](/attached_assets/generated_images/AI_training_visualization_3a3fa9e8.png)
 
 ## Introduction: Scaling Beyond 100 Billion Parameters
 
@@ -54,7 +54,7 @@ Moreover, the computational throughput and energy costs are staggering. Training
 
 These realities underscore that efficiently training ultra-large models is not just a nicety – it's an absolute necessity for anyone outside a select few tech giants, and even for those giants it's a critical concern for cost and sustainability.
 
-![AI Data Center Training](/@assets/generated_images/AI_data_center_training_6bfe1dca.png)
+![AI Data Center Training](/attached_assets/generated_images/AI_data_center_training_6bfe1dca.png)
 
 ## The Challenges of Training 100B+ Parameter Models
 
@@ -74,7 +74,7 @@ As mentioned, the electricity usage for large-scale training is a growing concer
 
 ## Gradient Checkpointing: Trading Compute for Memory Efficiency
 
-![Gradient Checkpointing Diagram](/@assets/generated_images/Gradient_checkpointing_diagram_2abc5910.png)
+![Gradient Checkpointing Diagram](/attached_assets/generated_images/Gradient_checkpointing_diagram_2abc5910.png)
 
 One of the most powerful techniques to overcome memory limitations is gradient checkpointing, also known as activation checkpointing or rematerialization. The idea is straightforward: during the forward pass, instead of storing every intermediate activation for the backward pass, we strategically save only a few checkpoints (layers' outputs) and discard the rest. During backpropagation, we recompute the lost activations as needed, rather than retrieving them from memory.
 

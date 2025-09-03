@@ -140,15 +140,10 @@ export function BlogPostPage() {
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         // Check if this is the specific paragraph about "Practical Implementation"
-        const isPracticalImplementationParagraph = paragraph.includes('Practical Implementation') ||
-          (paragraph.includes('To concretely illustrate the benefit') && paragraph.includes('10× reduction in memory usage'));
-
         return (
           <p
             key={index}
-            className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${
-              isPracticalImplementationParagraph ? 'text-base' : 'text-xs'
-            }`}
+            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}

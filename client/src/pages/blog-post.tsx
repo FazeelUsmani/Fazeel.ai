@@ -137,7 +137,7 @@ export function BlogPostPage() {
           return (
             <ul key={index} className="space-y-3 ml-6 my-6">
               {items.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-xs leading-relaxed">
+                <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
                   <span dangerouslySetInnerHTML={{
                     __html: item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
                   }} />

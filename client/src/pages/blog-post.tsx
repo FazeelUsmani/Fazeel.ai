@@ -74,7 +74,7 @@ export function BlogPostPage() {
           return (
             <div key={index} className="my-8">
               <img
-                src={`/attached_assets/${src}`}
+                src={`/attached_assets/${src}?v=${Date.now()}`}
                 alt={alt}
                 className="w-full rounded-lg shadow-lg"
                 onError={(e) => {

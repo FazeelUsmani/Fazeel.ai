@@ -98,8 +98,7 @@ Such savings are a game-changer for ultra-large models. Layers that previously c
 
 Another cornerstone of efficient large-scale training is mixed-precision training. Not all numerical calculations in neural network training require full 32-bit floating point precision. By using lower precision representations (such as 16-bit floats), we can significantly reduce memory usage and increase arithmetic speed – all while maintaining model accuracy with proper care.
 
-### Hardware Acceleration
-Today, most large-model training runs in FP16 (half-precision) or bfloat16 for the bulk of tensor operations. Modern GPUs (NVIDIA V100, A100, H100, etc.) have specialized hardware (Tensor Cores) that can perform FP16/BF16 matrix math much faster than FP32. The speedups are substantial – for example, enabling FP16 mixed precision nearly doubled training throughput in a benchmark case, compared to full FP32 training.
+**Hardware Acceleration** Today, most large-model training runs in FP16 (half-precision) or bfloat16 for the bulk of tensor operations. Modern GPUs (NVIDIA V100, A100, H100, etc.) have specialized hardware (Tensor Cores) that can perform FP16/BF16 matrix math much faster than FP32. The speedups are substantial – for example, enabling FP16 mixed precision nearly doubled training throughput in a benchmark case, compared to full FP32 training.
 
 ### Smart Precision Management
 Importantly, certain parts of the training process are kept in higher precision to avoid numerical issues. A common approach (used in NVIDIA's AMP – Automatic Mixed Precision) is:

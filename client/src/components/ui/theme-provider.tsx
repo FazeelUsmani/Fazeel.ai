@@ -73,9 +73,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   };
 
   const enableAutoMode = () => {
+    console.log('Enabling auto mode...');
     setIsAutoMode(true);
     localStorage.removeItem('auto-theme-disabled');
     const timeBasedTheme = getThemeBasedOnTime();
+    console.log('Setting theme to:', timeBasedTheme);
     setTheme(timeBasedTheme);
   };
 

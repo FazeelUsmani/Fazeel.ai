@@ -58,17 +58,15 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={isAutoMode ? enableAutoMode : toggleTheme}
+              onClick={toggleTheme}
               className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200"
               data-testid="button-theme-toggle"
-              title={isAutoMode ? "Click to re-sync with time" : "Toggle theme"}
+              title={isAutoMode ? "Manual override (disables auto mode)" : "Toggle theme"}
             >
-              {isAutoMode ? (
-                <Clock className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-              ) : theme === 'dark' ? (
+              {theme === 'dark' ? (
                 <Sun className="h-5 w-5 text-yellow-400" />
               ) : (
-                <Moon className="h-5 w-5 text-slate-600" />
+                <Moon className="h-5 w-5 text-slate-600 dark:text-slate-300" />
               )}
             </Button>
             

@@ -147,7 +147,7 @@ export function BlogPostPage() {
           <p 
             key={index} 
             className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${
-              isPracticalImplementationParagraph ? '!text-base !font-normal' : ''
+              isPracticalImplementationParagraph ? 'text-base !font-normal' : ''
             }`}
             dangerouslySetInnerHTML={{
               __html: isPracticalImplementationParagraph 

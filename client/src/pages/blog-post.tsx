@@ -155,7 +155,7 @@ export function BlogPostPage() {
         return (
           <p
             key={index}
-            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
+            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-3 text-base"
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}
@@ -261,7 +261,7 @@ export function BlogPostPage() {
         >
           <Card className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             <CardContent className="p-8 lg:p-12">
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {renderContent(post.content)}
               </div>
             </CardContent>

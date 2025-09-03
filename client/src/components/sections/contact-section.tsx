@@ -73,7 +73,7 @@ export function ContactSection() {
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Hyderabad, India',
       color: 'emerald',
     },
     {

@@ -140,7 +140,7 @@ export function BlogPostPage() {
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         // Check if this is the specific paragraph about "Practical Implementation"
-        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') || paragraph.includes('consider a deep network that normally would require ~60 GB');
+        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') || paragraph.includes('consider a deep network that normally would require ~60 GB') || paragraph.includes('Practical Implementation');
         
         
         return (

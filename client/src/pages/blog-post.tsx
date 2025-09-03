@@ -96,9 +96,22 @@ export function BlogPostPage() {
         );
       }
       if (paragraph.startsWith('## ')) {
+        // Check if this is the "Practical Implementation" paragraph that should be treated as regular text
+        const headingText = paragraph.replace('## ', '');
+        if (headingText.includes('Practical Implementation To concretely illustrate the benefit')) {
+          return (
+            <p
+              key={index}
+              className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
+              dangerouslySetInnerHTML={{
+                __html: headingText.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+              }}
+            />
+          );
+        }
         return (
           <h2 key={index} className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-6 mt-10 border-b border-slate-200 dark:border-slate-700 pb-3">
-            {paragraph.replace('## ', '')}
+            {headingText}
           </h2>
         );
       }

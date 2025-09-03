@@ -137,9 +137,10 @@ export function BlogPostPage() {
       
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
-        // Check if paragraph starts with bold text
-        const startsWithBold = paragraph.trim().startsWith('**');
-        const fontSize = startsWithBold ? 'text-base' : 'text-base';
+        // Force text-base for specific paragraphs about Memory Savings and Practical Implementation
+        const isMemorySavingsParagraph = paragraph.includes('How much memory can this save?') || 
+                                        paragraph.includes('To concretely illustrate the benefit');
+        const fontSize = isMemorySavingsParagraph ? 'text-base' : 'text-base';
         
         return (
           <p 

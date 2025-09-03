@@ -142,6 +142,7 @@ export function BlogPostPage() {
         // Check if this is the specific paragraph about "Practical Implementation"
         const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') || paragraph.includes('consider a deep network that normally would require ~60 GB');
         
+        
         return (
           <p 
             key={index} 

@@ -61,7 +61,7 @@ export function HeroSection() {
             animate="visible"
           >
             <motion.div variants={itemVariants}>
-              <Badge className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-300 dark:border-blue-700 text-blue-800 dark:text-blue-100 text-sm font-medium">
+              <Badge className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-300 dark:border-blue-700 text-slate-900 dark:text-blue-100 text-sm font-medium">
                 <Sparkles className="mr-2 h-4 w-4" />
                 Transforming Ideas into AI Reality
               </Badge>

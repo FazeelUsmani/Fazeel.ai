@@ -102,7 +102,7 @@ export function FounderProfileSection() {
             viewport={{ once: true }}
           >
             <motion.div variants={itemVariants}>
-              <Badge variant="secondary" className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-300 dark:border-purple-700 text-slate-900 dark:text-purple-100 font-semibold">
+              <Badge variant="secondary" className="inline-flex items-center px-4 py-2 bg-white dark:bg-slate-800 border-2 border-purple-500 text-purple-700 dark:text-purple-300 font-bold shadow-lg">
                 <User className="mr-2 h-4 w-4" />
                 Founder & Chief AI Architect
               </Badge>

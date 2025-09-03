@@ -139,9 +139,7 @@ Essentially, they achieved a 160× increase in parameter count at the same train
 
 Thanks to the efficient training strategies we've discussed, models with 100B+ parameters are not just theoretical – they have been trained and are delivering state-of-the-art results across many domains in NLP:
 
-**Few-Shot Learning Breakthroughs** GPT-3's 175B model famously showed that scaling up to this size yielded a qualitative leap in capability. Without any task-specific fine-tuning, GPT-3 achieved near SOTA performance on numerous benchmarks via few-shot prompting.
-
-
+**Few-Shot Learning Breakthroughs** GPT-3's 175B model famously showed that scaling up to this size yielded a qualitative leap in capability. Without any task-specific fine-tuning, GPT-3 achieved near SOTA performance on numerous benchmarks via few-shot prompting.`,
         author: "Fazeel Usmani",
         category: "LLM Research",
         tags: ["LLM", "Training Optimization", "Deep Learning", "Distributed Computing", "Cost Reduction"],
@@ -542,6 +540,8 @@ We've released our multilingual toolkit, enabling researchers worldwide to build
         ...post,
         id,
         publishedAt: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000), // Random date within last 30 days
+        tags: post.tags || null,
+        featured: post.featured || null,
       };
       this.blogPosts.set(id, blogPost);
     });
@@ -586,6 +586,8 @@ We've released our multilingual toolkit, enabling researchers worldwide to build
       ...insertPost,
       id,
       publishedAt: new Date(),
+      tags: insertPost.tags || null,
+      featured: insertPost.featured || null,
     };
     this.blogPosts.set(id, post);
     return post;
@@ -597,6 +599,7 @@ We've released our multilingual toolkit, enabling researchers worldwide to build
       ...insertSubmission,
       id,
       submittedAt: new Date(),
+      company: insertSubmission.company || null,
     };
     this.contactSubmissions.set(id, submission);
     return submission;

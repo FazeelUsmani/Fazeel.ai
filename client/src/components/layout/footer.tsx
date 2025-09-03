@@ -95,7 +95,7 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <span>📱</span>
-                <span>+918886164248</span>
+                <span>+91 (888) 616-4248</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span>📍</span>

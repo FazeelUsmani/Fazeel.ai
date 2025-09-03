@@ -67,7 +67,7 @@ export function ContactSection() {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+918886164248',
+      value: '+91 (888) 616-4248',
       color: 'purple',
     },
     {

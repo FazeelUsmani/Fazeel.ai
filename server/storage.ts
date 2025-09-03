@@ -139,11 +139,9 @@ Essentially, they achieved a 160× increase in parameter count at the same train
 
 Thanks to the efficient training strategies we've discussed, models with 100B+ parameters are not just theoretical – they have been trained and are delivering state-of-the-art results across many domains in NLP:
 
-### Few-Shot Learning Breakthroughs
-GPT-3's 175B model famously showed that scaling up to this size yielded a qualitative leap in capability. Without any task-specific fine-tuning, GPT-3 achieved near SOTA performance on numerous benchmarks via few-shot prompting.
+**Few-Shot Learning Breakthroughs** GPT-3's 175B model famously showed that scaling up to this size yielded a qualitative leap in capability. Without any task-specific fine-tuning, GPT-3 achieved near SOTA performance on numerous benchmarks via few-shot prompting.
 
-### Cost-Effective Training
-The open-source FLM-101B project demonstrated that a 101-billion parameter model could be trained for just $100K using progressive growing techniques – a 72% reduction in training time compared to training from scratch.
+**Cost-Effective Training** The open-source FLM-101B project demonstrated that a 101-billion parameter model could be trained for just $100K using progressive growing techniques – a 72% reduction in training time compared to training from scratch.
 
 ## Conclusion and Future Outlook
 

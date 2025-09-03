@@ -67,7 +67,7 @@ export function ContactSection() {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
+      value: '+918886164248',
       color: 'purple',
     },
     {

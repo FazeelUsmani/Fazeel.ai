@@ -149,7 +149,9 @@ export function BlogPostPage() {
               isPracticalImplementationParagraph ? 'text-base' : ''
             }`}
             dangerouslySetInnerHTML={{
-              __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+              __html: isPracticalImplementationParagraph 
+                ? paragraph // No bold formatting for this specific paragraph
+                : paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}
           />
         );

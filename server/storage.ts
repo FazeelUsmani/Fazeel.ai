@@ -59,15 +59,19 @@ These realities underscore that efficiently training ultra-large models is not j
 Training a model with over 100 billion parameters poses formidable challenges on multiple fronts:
 
 ### Memory Bottlenecks
+
 Perhaps the most immediate hurdle is memory. Storing the model's weights, plus the intermediate activations for backpropagation and optimizer states, can far exceed the capacity of any single accelerator (GPU/TPU). As noted, a naive training run can demand hundreds of gigabytes to terabytes of memory. For example, one report cited that a 530B model required over 10 TB of aggregate memory across the training cluster. Even "smaller" 100–200B models would exhaust the 40–80 GB VRAM of modern GPUs many times over.
 
 ### Hardware & Scalability
+
 Ultra-large models typically cannot be trained on a single GPU – or even a single server. They demand massive parallelism across dozens or hundreds of accelerators. For instance, GPT-3's training is rumored to have used 10,000 GPUs in a distributed cluster. Or consider Google's PaLM 540B, which was trained on 6144 TPU v4 chips organized into multiple TPU pods.
 
 ### Compute Time and Cost
+
 Simply put, training a 100B+ model from scratch is expensive and time-consuming. The number of floating point operations (FLOPs) required is enormous – often measured in hundreds of exaflops. Without efficient strategies, a training run can take weeks of wall-clock time on a large cluster, burning through millions of dollars in compute.
 
 ### Energy Consumption
+
 As mentioned, the electricity usage for large-scale training is a growing concern. Thousands of kilowatt-hours are consumed in a single training run of a big model. A recent study highlighted that training BLOOM (176B) consumed ~433 MWh and GPT-3 consumed ~1287 MWh.
 
 ## Gradient Checkpointing: Trading Compute for Memory Efficiency

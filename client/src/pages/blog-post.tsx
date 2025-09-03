@@ -140,10 +140,9 @@ export function BlogPostPage() {
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         // Check if this is the specific paragraph about "Practical Implementation"
-        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') ||
-          paragraph.includes('consider a deep network that normally would require ~60 GB') ||
-          paragraph.includes('10× reduction in memory usage') ||
-          paragraph.includes('gradient checkpointing, you might reduce that to ~6 GB');
+        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') &&
+          paragraph.includes('consider a deep network that normally would require ~60 GB') &&
+          paragraph.includes('10× reduction in memory usage');
 
 
         return (

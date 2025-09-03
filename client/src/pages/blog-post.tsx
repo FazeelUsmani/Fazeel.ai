@@ -262,24 +262,7 @@ export function BlogPostPage() {
           <Card className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             <CardContent className="p-8 lg:p-12">
               <div className="space-y-6">
-                {/* This is where the parallelism strategies will be rendered */}
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base">
-                  Breaking the 100B Parameter Barrier: Efficient Training Strategies for Ultra-Large Language Models
-                </p>
-                <ul className="space-y-3 ml-6 my-6">
-                  <li className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
-                    Data Parallelism (DP) This is the classic approach where we replicate the entire model on multiple GPUs and each GPU processes a different mini-batch of data. After each forward/backward pass, gradients are averaged (all-reduced) across GPUs to keep the model parameters in sync.
-                  </li>
-                  <li className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
-                    Model Parallelism (MP) In model parallelism, we split the model itself across multiple devices so that each GPU holds only a part of the model's parameters. This directly addresses the memory issue – each GPU is responsible for a slice of the model.
-                  </li>
-                  <li className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
-                    Pipeline Parallelism (PP) Pipeline parallelism is essentially layer-wise model parallelism combined with careful scheduling. The model is cut into a sequence of stages, each handled by a different GPU (or group of GPUs).
-                  </li>
-                  <li className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
-                    Real-World Success Stories In practice, high-performance training of 100B+ models uses a combination of these parallelism strategies – often all three. For example, Microsoft/NVIDIA's MT-NLG 530B model was trained with "3D parallelism" that combined data parallelism across nodes, tensor model parallelism within each node, and pipeline parallelism across layers, to efficiently scale to thousands of GPUs.
-                  </li>
-                </ul>
+                {renderContent(post.content)}
               </div>
             </CardContent>
           </Card>

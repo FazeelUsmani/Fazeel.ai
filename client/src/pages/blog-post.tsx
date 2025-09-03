@@ -53,10 +53,10 @@ export function BlogPostPage() {
 
   const formatDate = (date: Date | string) => {
     const d = typeof date === 'string' ? new Date(date) : date;
-    return d.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return d.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
@@ -64,7 +64,7 @@ export function BlogPostPage() {
 
   const renderContent = (content: string) => {
     const paragraphs = content.split('\n\n');
-    
+
     return paragraphs.map((paragraph, index) => {
       // Handle images
       if (paragraph.includes('![') && paragraph.includes('](/attached_assets/')) {
@@ -73,7 +73,7 @@ export function BlogPostPage() {
           const [, alt, src] = match;
           return (
             <div key={index} className="my-8">
-              <img 
+              <img
                 src={`/attached_assets/${src}`}
                 alt={alt}
                 className="w-full rounded-lg shadow-lg"
@@ -86,7 +86,7 @@ export function BlogPostPage() {
           );
         }
       }
-      
+
       // Handle headings
       if (paragraph.startsWith('# ')) {
         return (
@@ -116,7 +116,7 @@ export function BlogPostPage() {
           </h4>
         );
       }
-      
+
       // Handle bullet points
       if (paragraph.includes('\n- ') || paragraph.startsWith('- ')) {
         const items = paragraph.split('\n').filter(line => line.trim().startsWith('- '));
@@ -134,36 +134,39 @@ export function BlogPostPage() {
           );
         }
       }
-      
-      
-      
+
+
+
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         // Check if this is the specific paragraph about "Practical Implementation"
-        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') || paragraph.includes('consider a deep network that normally would require ~60 GB') || paragraph.includes('Practical Implementation');
-        
-        
+        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') ||
+          paragraph.includes('consider a deep network that normally would require ~60 GB') ||
+          paragraph.includes('10× reduction in memory usage') ||
+          paragraph.includes('gradient checkpointing, you might reduce that to ~6 GB');
+
+
         return (
-          <p 
-            key={index} 
+          <p
+            key={index}
             className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${
-              isPracticalImplementationParagraph ? 'text-base !font-normal' : ''
+              isPracticalImplementationParagraph ? '!text-base !font-normal' : ''
             }`}
             dangerouslySetInnerHTML={{
-              __html: isPracticalImplementationParagraph 
+              __html: isPracticalImplementationParagraph
                 ? paragraph.replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting for this specific paragraph
                 : paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}
           />
         );
       }
-      
+
       return null;
     }).filter(Boolean);
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen pt-24 pb-20 bg-white dark:bg-slate-900"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -171,7 +174,7 @@ export function BlogPostPage() {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Navigation */}
-        <motion.div 
+        <motion.div
           className="mb-8"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -186,7 +189,7 @@ export function BlogPostPage() {
         </motion.div>
 
         {/* Article Header */}
-        <motion.header 
+        <motion.header
           className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -223,9 +226,9 @@ export function BlogPostPage() {
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-8">
             {post.tags?.map((tag, index) => (
-              <Badge 
-                key={index} 
-                variant="secondary" 
+              <Badge
+                key={index}
+                variant="secondary"
                 className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
               >
                 {tag}
@@ -235,8 +238,8 @@ export function BlogPostPage() {
 
           {/* Share Button */}
           <div className="flex items-center gap-4">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
               className="border-slate-200 dark:border-slate-700"
@@ -248,7 +251,7 @@ export function BlogPostPage() {
         </motion.header>
 
         {/* Article Content */}
-        <motion.article 
+        <motion.article
           className="max-w-none"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -264,7 +267,7 @@ export function BlogPostPage() {
         </motion.article>
 
         {/* Footer Actions */}
-        <motion.footer 
+        <motion.footer
           className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -272,7 +275,7 @@ export function BlogPostPage() {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-4">
-              <Button 
+              <Button
                 variant="outline"
                 onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
               >

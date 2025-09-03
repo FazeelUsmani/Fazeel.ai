@@ -135,18 +135,7 @@ export function BlogPostPage() {
         }
       }
       
-      // Handle divs with text-base class and clean up the content
-      if (paragraph.includes('<div class="text-base">') && paragraph.includes('</div>')) {
-        const content = paragraph.replace(/<div class="text-base">(.*?)<\/div>/gs, '$1');
-        const cleanContent = content.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>');
-        return (
-          <p 
-            key={index} 
-            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
-            dangerouslySetInnerHTML={{ __html: cleanContent }}
-          />
-        );
-      }
+      
       
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {

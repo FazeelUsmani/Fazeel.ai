@@ -184,7 +184,7 @@ The first step was designing a future-proof architecture that could grow with de
 
 **Caching Layer** We implemented intelligent caching (storing frequent or recent responses) to lighten the load on the GPT model, accelerating responses for repeated queries and reducing compute costs.
 
-![Enterprise AI Platform Architecture](/attached_assets/image_1756467635768.png)
+![Production AI Infrastructure](/attached_assets/generated_images/production_ai_infrastructure_diagram.png)
 
 **Monitoring & Alerting** Enterprise-grade monitoring was embedded at every level – tracking latency, throughput, error rates, and system health. Our team set up real-time alerts to catch anomalies and resolve issues before they impact users, ensuring high availability.
 
@@ -204,7 +204,7 @@ Geo-Distributed Deployment To minimize network latency, we deployed the platform
 
 These efforts paid off tremendously. We brought average response times down from a few seconds to well under a second for most queries. In practice, this real-time responsiveness made the AI platform feel instant and engaging – a critical factor in user satisfaction and adoption.
 
-![Production Performance Monitoring Dashboard](/attached_assets/image_1756467792302.png)
+![AI Performance Optimization Dashboard](/attached_assets/generated_images/ai_performance_optimization_dashboard.png)
 
 ## Optimizing Costs to Scale Sustainably
 
@@ -218,7 +218,7 @@ Optimized Model Usage We introduced a tiered approach to model deployment. A ver
 
 Spot Instances & Reserved Pricing In our cloud infrastructure, we took advantage of cost-saving options like spot instances (using spare capacity at lower prices) and reserved instances for steady baseline load. This reduced infrastructure expenses significantly without affecting performance.
 
-![Cloud Infrastructure Cost Optimization](/attached_assets/image_1756885373255.png)
+![Enterprise AI Scaling Architecture](/attached_assets/generated_images/enterprise_ai_scaling_architecture.png)
 
 Through these measures, the platform achieved economies of scale. As usage grew 10x, the costs did not grow at the same rate – in fact, our optimizations led to a lower cost per transaction. The business could support millions of AI-driven interactions within a predictable budget, turning what could have been a cost center into a high-ROI investment.
 

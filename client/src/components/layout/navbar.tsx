@@ -1,12 +1,12 @@
 import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/lib/theme';
-import { Moon, Sun, Menu, Brain } from 'lucide-react';
+import { Moon, Sun, Menu, Brain, Clock } from 'lucide-react';
 import { useState } from 'react';
 
 export function Navbar() {
   const [location] = useLocation();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, isAutoMode, enableAutoMode } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -45,20 +45,46 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
+            {/* Auto mode indicator */}
+            {isAutoMode && (
+              <div className="flex items-center space-x-1 text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-full">
+                <Clock className="h-3 w-3" />
+                <span>Auto</span>
+              </div>
+            )}
+            
+            {/* Theme toggle button */}
             <Button
               variant="ghost"
               size="icon"
-              onClick={toggleTheme}
+              onClick={isAutoMode ? enableAutoMode : toggleTheme}
               className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200"
               data-testid="button-theme-toggle"
+              title={isAutoMode ? "Click to re-sync with time" : "Toggle theme"}
             >
-              {theme === 'dark' ? (
+              {isAutoMode ? (
+                <Clock className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              ) : theme === 'dark' ? (
                 <Sun className="h-5 w-5 text-yellow-400" />
               ) : (
                 <Moon className="h-5 w-5 text-slate-600" />
               )}
             </Button>
+            
+            {/* Manual mode re-enable auto button */}
+            {!isAutoMode && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={enableAutoMode}
+                className="text-xs px-2 py-1 h-auto text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
+                data-testid="button-enable-auto-mode"
+                title="Enable auto theme based on time"
+              >
+                Auto
+              </Button>
+            )}
             
             <Button
               variant="ghost"

@@ -34,9 +34,7 @@ export class MemStorage implements IStorage {
       {
         title: "Breaking the 100B Parameter Barrier: Efficient Training Strategies for Ultra-Large Language Models",
         excerpt: "Discover how we reduced training costs by 70% while achieving state-of-the-art performance on 175B parameter models using innovative gradient checkpointing, mixed-precision training, and advanced parallelism strategies.",
-        content: `# Breaking the 100B Parameter Barrier: Efficient Training Strategies for Ultra-Large Language Models
-
-![100 Billion Parameter Training](/attached_assets/image_1756467628235.png)
+        content: `![100 Billion Parameter Training](/attached_assets/image_1756467628235.png)
 
 ## Introduction: Scaling Beyond 100 Billion Parameters
 

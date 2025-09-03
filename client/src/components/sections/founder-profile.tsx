@@ -237,7 +237,7 @@ export function FounderProfileSection() {
                   <User className="h-24 w-24 opacity-90" />
                 </div>
                 <h3 className="text-3xl font-bold mb-2">Fazeel Usmani</h3>
-                <p className="text-white mb-4 text-lg font-semibold bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">Founder & Chief AI Architect</p>
+                <p className="text-yellow-300 mb-4 text-lg font-bold bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-yellow-300/50 shadow-lg">Founder & Chief AI Architect</p>
                 <div className="text-sm text-blue-100 italic mb-6">
                   <p>"Building the future of AI, one model at a time"</p>
                 </div>

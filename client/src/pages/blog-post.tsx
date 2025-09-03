@@ -143,12 +143,11 @@ export function BlogPostPage() {
         const isPracticalImplementationParagraph = paragraph.includes('Practical Implementation') ||
           (paragraph.includes('To concretely illustrate the benefit') && paragraph.includes('10× reduction in memory usage'));
 
-
         return (
           <p
             key={index}
             className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${
-              isPracticalImplementationParagraph ? '!text-base' : ''
+              isPracticalImplementationParagraph ? 'text-base' : 'text-xs'
             }`}
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')

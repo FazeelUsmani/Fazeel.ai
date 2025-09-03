@@ -148,7 +148,9 @@ Thanks to the efficient training strategies we've discussed, models with 100B+ p
       {
         title: "From GPT to Production: Building a Multi-Billion Dollar AI Platform at Scale",
         excerpt: "How we built and scaled an enterprise AI platform processing 5 billion tokens daily, serving Fortune 500 companies with 99.99% uptime and sub-100ms latency.",
-        content: `Imagine taking a cutting-edge AI model from a lab demo to a core component of a multi-billion-dollar enterprise platform. This is exactly what we achieved at Fazeel AI Solutions. We transformed a GPT-based prototype into a scalable, fast, and reliable AI platform that now powers real business value at massive scale. In this case study, we share how our engineering and strategic innovation delivered real-time performance, cost efficiency, and 99.9% uptime – turning an AI idea into a production powerhouse.
+        content: `![GPT to Production Platform](/attached_assets/generated_images/AI_platform_business_success_c872b25a.png)
+
+Imagine taking a cutting-edge AI model from a lab demo to a core component of a multi-billion-dollar enterprise platform. This is exactly what we achieved at Fazeel AI Solutions. We transformed a GPT-based prototype into a scalable, fast, and reliable AI platform that now powers real business value at massive scale. In this case study, we share how our engineering and strategic innovation delivered real-time performance, cost efficiency, and 99.9% uptime – turning an AI idea into a production powerhouse.
 
 ## Results at a Glance
 
@@ -176,6 +178,8 @@ Fazeel AI Solutions' mission: Engineer a solution that meets these demands – d
 
 The first step was designing a future-proof architecture that could grow with demand while staying reliable. We developed a scalable cloud architecture with distributed, containerized services and intelligent load balancing. Key components of our architecture included:
 
+![Enterprise AI Platform Architecture](/attached_assets/generated_images/Enterprise_AI_platform_architecture_e9a2b5a9.png)
+
 **Microservice Design** We broke the AI functionality into microservices (for inference, data processing, etc.), allowing independent scaling and updates without downtime.
 
 **Containerized Deployment** Using Docker/Kubernetes, each service can be replicated across multiple nodes. This provides on-demand scalability and resilience – if one instance fails, others seamlessly take over to maintain service.
@@ -184,7 +188,9 @@ The first step was designing a future-proof architecture that could grow with de
 
 **Caching Layer** We implemented intelligent caching (storing frequent or recent responses) to lighten the load on the GPT model, accelerating responses for repeated queries and reducing compute costs.
 
-![Production AI Infrastructure](/attached_assets/generated_images/production_ai_infrastructure_diagram.png)
+![AI Caching System Architecture](/attached_assets/generated_images/AI_caching_system_architecture_13c81adb.png)
+
+![Production AI Infrastructure](/attached_assets/generated_images/Production_AI_infrastructure_datacenter_c6d0bc0d.png)
 
 **Monitoring & Alerting** Enterprise-grade monitoring was embedded at every level – tracking latency, throughput, error rates, and system health. Our team set up real-time alerts to catch anomalies and resolve issues before they impact users, ensuring high availability.
 
@@ -204,7 +210,9 @@ Geo-Distributed Deployment To minimize network latency, we deployed the platform
 
 These efforts paid off tremendously. We brought average response times down from a few seconds to well under a second for most queries. In practice, this real-time responsiveness made the AI platform feel instant and engaging – a critical factor in user satisfaction and adoption.
 
-![AI Performance Optimization Dashboard](/attached_assets/generated_images/ai_performance_optimization_dashboard.png)
+![AI Performance Optimization Dashboard](/attached_assets/generated_images/AI_performance_optimization_dashboard_3c5609b8.png)
+
+![AI Model Optimization Workflow](/attached_assets/generated_images/AI_model_optimization_workflow_746b7a16.png)
 
 ## Optimizing Costs to Scale Sustainably
 
@@ -218,7 +226,9 @@ Optimized Model Usage We introduced a tiered approach to model deployment. A ver
 
 Spot Instances & Reserved Pricing In our cloud infrastructure, we took advantage of cost-saving options like spot instances (using spare capacity at lower prices) and reserved instances for steady baseline load. This reduced infrastructure expenses significantly without affecting performance.
 
-![Enterprise AI Scaling Architecture](/attached_assets/generated_images/enterprise_ai_scaling_architecture.png)
+![AI Business Analytics Dashboard](/attached_assets/generated_images/AI_business_analytics_dashboard_49dcd17a.png)
+
+![Global AI Deployment Network](/attached_assets/generated_images/Global_AI_deployment_network_e57e4b1c.png)
 
 Through these measures, the platform achieved economies of scale. As usage grew 10x, the costs did not grow at the same rate – in fact, our optimizations led to a lower cost per transaction. The business could support millions of AI-driven interactions within a predictable budget, turning what could have been a cost center into a high-ROI investment.
 
@@ -235,6 +245,8 @@ Continuous Monitoring We set up comprehensive monitoring dashboards tracking upt
 Quality Assurance & Updates Even after deployment, we maintained rigorous QA. We regularly tested the platform with new model versions and updates in a staging environment before rolling them out. By doing gradual rollouts and having the ability to rollback quickly, we ensured new features or improvements never jeopardized stability.
 
 Security & Trust Although not visible to users, security measures (like encryption, authentication, and safeguards against prompt injection attacks) were put in place. These not only protect data but also add to reliability by preventing misuse or failures caused by malicious inputs. A reliable platform is also a secure platform in production.
+
+![Enterprise AI Security Systems](/attached_assets/generated_images/Enterprise_AI_security_systems_6ddbd417.png)
 
 Thanks to these efforts, the AI platform achieved 99.9%+ uptime consistently. In plain terms, it's almost never down. Over the course of months, there were practically zero interruptions to service – a testament to the robustness of the engineering. For the client's business, this reliability translates into happy customers and confidence that their AI-powered services will always be available when needed.
 

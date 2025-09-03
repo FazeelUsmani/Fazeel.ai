@@ -137,10 +137,14 @@ export function BlogPostPage() {
       
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
+        // Check if paragraph starts with bold text
+        const startsWithBold = paragraph.trim().startsWith('**');
+        const fontSize = startsWithBold ? 'text-base' : 'text-base';
+        
         return (
           <p 
             key={index} 
-            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
+            className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${fontSize}`}
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}

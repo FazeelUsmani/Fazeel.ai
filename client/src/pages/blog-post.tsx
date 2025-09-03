@@ -135,17 +135,26 @@ export function BlogPostPage() {
         }
       }
       
-      // Handle regular paragraphs
-      if (paragraph.trim() && !paragraph.startsWith('#')) {
-        // Force text-base for specific paragraphs about Memory Savings and Practical Implementation
-        const isMemorySavingsParagraph = paragraph.includes('How much memory can this save?') || 
-                                        paragraph.includes('To concretely illustrate the benefit');
-        const fontSize = isMemorySavingsParagraph ? 'text-base' : 'text-base';
-        
+      // Handle divs with text-base class
+      if (paragraph.includes('<div class="text-base">') && paragraph.includes('</div>')) {
+        const content = paragraph.replace(/<div class="text-base">(.*?)<\/div>/g, '$1');
         return (
           <p 
             key={index} 
-            className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${fontSize}`}
+            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
+            dangerouslySetInnerHTML={{
+              __html: content.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+            }}
+          />
+        );
+      }
+      
+      // Handle regular paragraphs
+      if (paragraph.trim() && !paragraph.startsWith('#')) {
+        return (
+          <p 
+            key={index} 
+            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4"
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}

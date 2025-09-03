@@ -140,17 +140,17 @@ export function BlogPostPage() {
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         // Check if this is the specific paragraph about "Practical Implementation"
-        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit, consider a deep network');
+        const isPracticalImplementationParagraph = paragraph.includes('To concretely illustrate the benefit') || paragraph.includes('consider a deep network that normally would require ~60 GB');
         
         return (
           <p 
             key={index} 
             className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${
-              isPracticalImplementationParagraph ? 'text-base' : ''
+              isPracticalImplementationParagraph ? '!text-base !font-normal' : ''
             }`}
             dangerouslySetInnerHTML={{
               __html: isPracticalImplementationParagraph 
-                ? paragraph // No bold formatting for this specific paragraph
+                ? paragraph.replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting for this specific paragraph
                 : paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}
           />

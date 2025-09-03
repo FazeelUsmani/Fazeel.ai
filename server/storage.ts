@@ -148,9 +148,7 @@ Thanks to the efficient training strategies we've discussed, models with 100B+ p
       {
         title: "From GPT to Production: Building a Multi-Billion Dollar AI Platform at Scale",
         excerpt: "How we built and scaled an enterprise AI platform processing 5 billion tokens daily, serving Fortune 500 companies with 99.99% uptime and sub-100ms latency.",
-        content: `![GPT to Production Platform](/attached_assets/image_1756885373255.png)
-
-Imagine taking a cutting-edge AI model from a lab demo to a core component of a multi-billion-dollar enterprise platform. This is exactly what we achieved at Fazeel AI Solutions. We transformed a GPT-based prototype into a scalable, fast, and reliable AI platform that now powers real business value at massive scale. In this case study, we share how our engineering and strategic innovation delivered real-time performance, cost efficiency, and 99.9% uptime – turning an AI idea into a production powerhouse.
+        content: `Imagine taking a cutting-edge AI model from a lab demo to a core component of a multi-billion-dollar enterprise platform. This is exactly what we achieved at Fazeel AI Solutions. We transformed a GPT-based prototype into a scalable, fast, and reliable AI platform that now powers real business value at massive scale. In this case study, we share how our engineering and strategic innovation delivered real-time performance, cost efficiency, and 99.9% uptime – turning an AI idea into a production powerhouse.
 
 ## Results at a Glance
 
@@ -195,10 +193,6 @@ Enterprise-grade monitoring was embedded at every level – tracking latency, th
 
 This robust architecture meant the platform could automatically scale when user activity spiked and maintain stability if components needed maintenance or experienced hiccups. The result? No more growth pains – the groundwork was set for the AI platform to handle 10×, 100×, or even 1000× more load without major redesigns.
 
-![Platform Architecture](/attached_assets/image_1756885906653.png)
-
-*High-level architecture of the AI platform, showing how client requests flow through the load balancer and API gateway to a cluster of GPT model servers. Supporting services (caching, databases, monitoring) ensure scalability and reliability, while multi-zone deployment safeguards uptime. This modular design lets the platform grow seamlessly while maintaining performance.*
-
 ## Achieving Lightning-Fast Performance (Latency Matters!)
 
 When it comes to user experience, speed is everything. Our next focus was slashing the latency – the time it takes for the AI model to process a request and return an answer. Out-of-the-box GPT models can be slow under heavy load, which would frustrate users or make the application feel laggy. We tackled this head-on with a series of performance optimizations:
@@ -234,10 +228,6 @@ We introduced a tiered approach to model deployment. A very large model (for the
 In our cloud infrastructure, we took advantage of cost-saving options like spot instances (using spare capacity at lower prices) and reserved instances for steady baseline load. This reduced infrastructure expenses significantly without affecting performance.
 
 Through these measures, the platform achieved economies of scale. As usage grew 10x, the costs did not grow at the same rate – in fact, our optimizations led to a lower cost per transaction. The business could support millions of AI-driven interactions within a predictable budget, turning what could have been a cost center into a high-ROI investment.
-
-![Cost Optimization Graph](/attached_assets/image_1756886316949.png)
-
-*Cost per 1,000 requests over time, compared to user growth. Initially, cost would have spiked along with usage (dotted red trend). With our optimizations, the actual cost curve (solid green line) rises much more gently even as request volume soars. This illustrates how the platform scaled efficiently – delivering far more AI outputs for each dollar spent as months go by, and protecting the client's margins.*
 
 ## Ensuring Enterprise-Grade Reliability and Uptime
 

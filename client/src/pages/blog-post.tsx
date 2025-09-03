@@ -137,10 +137,19 @@ export function BlogPostPage() {
       
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
+        // Check if this paragraph is part of the challenges section
+        const isChallengeSection = paragraph.includes('Memory Bottlenecks') || 
+                                 paragraph.includes('Hardware & Scalability') || 
+                                 paragraph.includes('Compute Time and Cost') || 
+                                 paragraph.includes('Energy Consumption') ||
+                                 (index > 0 && paragraphs[index-1] && paragraphs[index-1].includes('## The Challenges of Training 100B+ Parameter Models'));
+        
+        const fontSize = isChallengeSection ? 'text-lg' : 'text-base';
+        
         return (
           <p 
             key={index} 
-            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
+            className={`text-slate-600 dark:text-slate-300 leading-relaxed mb-4 ${fontSize}`}
             dangerouslySetInnerHTML={{
               __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
             }}

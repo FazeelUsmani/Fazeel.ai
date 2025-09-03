@@ -83,12 +83,12 @@ One of the most powerful techniques to overcome memory limitations is gradient c
 In essence, we are trading extra compute for a drastic reduction in memory usage.
 
 ### Memory Savings
-**Memory Savings** How much memory can this save? In the best case, gradient checkpointing can reduce activation memory requirements from linear in the number of layers to roughly the square root of the number of layers. This translates into order-of-magnitude savings for very deep networks.
+How much memory can this save? In the best case, gradient checkpointing can reduce activation memory requirements from linear in the number of layers to roughly the square root of the number of layers. This translates into order-of-magnitude savings for very deep networks.
 
 OpenAI researchers demonstrated an early example: using activation checkpointing allowed them to fit models 10× larger into GPU memory at the cost of only about 20–30% more computation. In practice, a general rule of thumb is ~20% training slowdown for checkpointed training, which is often a very favorable trade-off.
 
 ### Practical Implementation
-**Practical Implementation** To concretely illustrate the benefit, consider a deep network that normally would require ~60 GB of memory for activations during a training step. With gradient checkpointing, you might reduce that to ~6 GB – a 10× reduction in memory usage!
+To concretely illustrate the benefit, consider a deep network that normally would require ~60 GB of memory for activations during a training step. With gradient checkpointing, you might reduce that to ~6 GB – a 10× reduction in memory usage!
 
 Such savings are a game-changer for ultra-large models. Layers that previously couldn't even fit on a GPU can now be trained, because we no longer need to hold every activation in memory simultaneously. As a result, gradient checkpointing is now commonly used in training large Transformers.
 

@@ -102,7 +102,7 @@ export function FounderProfileSection() {
             viewport={{ once: true }}
           >
             <motion.div variants={itemVariants}>
-              <Badge variant="secondary" className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-200 dark:border-purple-800 text-purple-600 dark:text-purple-400">
+              <Badge variant="secondary" className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-300 dark:border-purple-700 text-slate-900 dark:text-purple-100 font-semibold">
                 <User className="mr-2 h-4 w-4" />
                 Founder & Chief AI Architect
               </Badge>
@@ -237,7 +237,7 @@ export function FounderProfileSection() {
                   <User className="h-24 w-24 opacity-90" />
                 </div>
                 <h3 className="text-3xl font-bold mb-2">Fazeel Usmani</h3>
-                <p className="text-yellow-300 mb-4 text-lg font-bold bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-yellow-300/50 shadow-lg">Founder & Chief AI Architect</p>
+                <p className="text-blue-100 mb-4 text-lg">Founder & Chief AI Architect</p>
                 <div className="text-sm text-blue-100 italic mb-6">
                   <p>"Building the future of AI, one model at a time"</p>
                 </div>

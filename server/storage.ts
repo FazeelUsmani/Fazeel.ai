@@ -116,17 +116,13 @@ When a model doesn't fit in the memory of a single accelerator (which is certain
 
 ### Three Types of Parallelism
 
-#### Data Parallelism (DP)
-This is the classic approach where we replicate the entire model on multiple GPUs and each GPU processes a different mini-batch of data. After each forward/backward pass, gradients are averaged (all-reduced) across GPUs to keep the model parameters in sync.
+**Data Parallelism (DP)** This is the classic approach where we replicate the entire model on multiple GPUs and each GPU processes a different mini-batch of data. After each forward/backward pass, gradients are averaged (all-reduced) across GPUs to keep the model parameters in sync.
 
-#### Model Parallelism (MP)
-In model parallelism, we split the model itself across multiple devices so that each GPU holds only a part of the model's parameters. This directly addresses the memory issue – each GPU is responsible for a slice of the model.
+**Model Parallelism (MP)** In model parallelism, we split the model itself across multiple devices so that each GPU holds only a part of the model's parameters. This directly addresses the memory issue – each GPU is responsible for a slice of the model.
 
-#### Pipeline Parallelism (PP)
-Pipeline parallelism is essentially layer-wise model parallelism combined with careful scheduling. The model is cut into a sequence of stages, each handled by a different GPU (or group of GPUs).
+**Pipeline Parallelism (PP)** Pipeline parallelism is essentially layer-wise model parallelism combined with careful scheduling. The model is cut into a sequence of stages, each handled by a different GPU (or group of GPUs).
 
-### Real-World Success Stories
-In practice, high-performance training of 100B+ models uses a combination of these parallelism strategies – often all three. For example, Microsoft/NVIDIA's MT-NLG 530B model was trained with "3D parallelism" that combined data parallelism across nodes, tensor model parallelism within each node, and pipeline parallelism across layers, to efficiently scale to thousands of GPUs.
+**Real-World Success Stories** In practice, high-performance training of 100B+ models uses a combination of these parallelism strategies – often all three. For example, Microsoft/NVIDIA's MT-NLG 530B model was trained with "3D parallelism" that combined data parallelism across nodes, tensor model parallelism within each node, and pipeline parallelism across layers, to efficiently scale to thousands of GPUs.
 
 ## Sparse Models and Modular Architectures: Smarter Ways to Scale
 

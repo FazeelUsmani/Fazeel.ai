@@ -207,7 +207,7 @@ export function ServicesSection() {
               <Button 
                 variant="outline"
                 size="lg"
-                className="px-8 py-4 border-2 border-white text-white font-semibold hover:bg-white/10 transition-all duration-200"
+                className="px-8 py-4 border-2 border-white dark:border-white text-white dark:text-white bg-black/20 dark:bg-transparent font-semibold hover:bg-black/30 dark:hover:bg-white/10 transition-all duration-200"
                 data-testid="button-download-case-studies"
               >
                 <Download className="mr-2 h-5 w-5" />

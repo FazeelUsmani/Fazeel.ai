@@ -177,19 +177,19 @@ Fazeel AI Solutions' mission: Engineer a solution that meets these demands – d
 The first step was designing a future-proof architecture that could grow with demand while staying reliable. We developed a scalable cloud architecture with distributed, containerized services and intelligent load balancing. Key components of our architecture included:
 
 ### Microservice Design
-We broke the AI functionality into microservices (for inference, data processing, etc.), allowing independent scaling and updates without downtime.
+<div class="text-base">We broke the AI functionality into microservices (for inference, data processing, etc.), allowing independent scaling and updates without downtime.</div>
 
 ### Containerized Deployment
-Using Docker/Kubernetes, each service can be replicated across multiple nodes. This provides on-demand scalability and resilience – if one instance fails, others seamlessly take over to maintain service.
+<div class="text-base">Using Docker/Kubernetes, each service can be replicated across multiple nodes. This provides on-demand scalability and resilience – if one instance fails, others seamlessly take over to maintain service.</div>
 
 ### API Gateway & Load Balancing
-An API gateway routes incoming requests efficiently, while load balancers distribute traffic across instances to prevent any single point from becoming a bottleneck.
+<div class="text-base">An API gateway routes incoming requests efficiently, while load balancers distribute traffic across instances to prevent any single point from becoming a bottleneck.</div>
 
 ### Caching Layer
-We implemented intelligent caching (storing frequent or recent responses) to lighten the load on the GPT model, accelerating responses for repeated queries and reducing compute costs.
+<div class="text-base">We implemented intelligent caching (storing frequent or recent responses) to lighten the load on the GPT model, accelerating responses for repeated queries and reducing compute costs.</div>
 
 ### Monitoring & Alerting
-Enterprise-grade monitoring was embedded at every level – tracking latency, throughput, error rates, and system health. Our team set up real-time alerts to catch anomalies and resolve issues before they impact users, ensuring high availability.
+<div class="text-base">Enterprise-grade monitoring was embedded at every level – tracking latency, throughput, error rates, and system health. Our team set up real-time alerts to catch anomalies and resolve issues before they impact users, ensuring high availability.</div>
 
 This robust architecture meant the platform could automatically scale when user activity spiked and maintain stability if components needed maintenance or experienced hiccups. The result? No more growth pains – the groundwork was set for the AI platform to handle 10×, 100×, or even 1000× more load without major redesigns.
 

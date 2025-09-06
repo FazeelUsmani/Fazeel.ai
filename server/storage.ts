@@ -201,13 +201,13 @@ This robust architecture meant the platform could automatically scale when user 
 
 When it comes to user experience, speed is everything. Our next focus was slashing the latency – the time it takes for the AI model to process a request and return an answer. Out-of-the-box GPT models can be slow under heavy load, which would frustrate users or make the application feel laggy. We tackled this head-on with a series of performance optimizations:
 
-**Model Optimization** We fine-tuned and optimized the AI model for inference efficiency. Techniques like model distillation and quantization were applied so the model could run faster with minimal impact on output quality.
+- **Model Optimization**: We fine-tuned and optimized the AI model for inference efficiency. Techniques like model distillation and quantization were applied so the model could run faster with minimal impact on output quality.
 
-**Concurrent Processing** The infrastructure was tuned to handle many requests in parallel. We adjusted thread settings and GPU utilization to ensure the AI could serve multiple users concurrently without queueing delays.
+- **Concurrent Processing**: The infrastructure was tuned to handle many requests in parallel. We adjusted thread settings and GPU utilization to ensure the AI could serve multiple users concurrently without queueing delays.
 
-**Streaming Responses** For certain use cases, we enabled token streaming – sending partial results back to the user as the model generates text. This creates an instantaneous feel, as users begin seeing answers almost immediately, even if the full response takes longer to complete.
+- **Streaming Responses**: For certain use cases, we enabled token streaming – sending partial results back to the user as the model generates text. This creates an instantaneous feel, as users begin seeing answers almost immediately, even if the full response takes longer to complete.
 
-**Geo-Distributed Deployment** To minimize network latency, we deployed the platform in multiple regions close to major user bases. This means users' requests travel shorter distances, shaving off precious milliseconds and ensuring fast response globally.
+- **Geo-Distributed Deployment**: To minimize network latency, we deployed the platform in multiple regions close to major user bases. This means users' requests travel shorter distances, shaving off precious milliseconds and ensuring fast response globally.
 
 These efforts paid off tremendously. We brought average response times down from a few seconds to well under a second for most queries. In practice, this real-time responsiveness made the AI platform feel instant and engaging – a critical factor in user satisfaction and adoption.
 

@@ -6,7 +6,7 @@ import { FaGoogle } from 'react-icons/fa';
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-16">
+    <footer className="bg-slate-900 dark:bg-slate-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
@@ -88,18 +88,18 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-slate-300">
+            <ul className="space-y-2 text-slate-300 dark:text-slate-300">
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-blue-400" />
-                <a href="mailto:fazeelusmani18@gmail.com" className="hover:text-blue-400 transition-colors">fazeelusmani18@gmail.com</a>
+                <a href="mailto:fazeelusmani18@gmail.com" className="text-white hover:text-blue-400 transition-colors">fazeelusmani18@gmail.com</a>
               </li>
               <li className="flex items-center space-x-2">
                 <span>📱</span>
-                <span>+91 (888) 616-4248</span>
+                <span className="text-white">+91 (888) 616-4248</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span>📍</span>
-                <span>Hyderabad, India</span>
+                <span className="text-white">Hyderabad, India</span>
               </li>
             </ul>
             

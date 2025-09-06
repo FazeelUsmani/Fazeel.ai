@@ -157,7 +157,10 @@ export function BlogPostPage() {
             key={index}
             className="text-slate-600 dark:text-slate-300 leading-relaxed mb-3 text-base"
             dangerouslySetInnerHTML={{
-              __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+              __html: paragraph
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
+                .replace(/<div class="text-base">/g, '')
+                .replace(/<\/div>/g, '')
             }}
           />
         );

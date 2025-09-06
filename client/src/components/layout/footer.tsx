@@ -110,7 +110,7 @@ export function Footer() {
                 <Input 
                   type="email" 
                   placeholder="Your email" 
-                  className="flex-1 bg-slate-800 border-slate-700 focus:ring-blue-500 text-white text-sm" 
+                  className="flex-1 bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-blue-500 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 text-sm" 
                   data-testid="input-newsletter-email"
                 />
                 <Button 

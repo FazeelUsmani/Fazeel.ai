@@ -219,13 +219,13 @@ These efforts paid off tremendously. We brought average response times down from
 
 An AI platform of this scale must not only be fast, but also cost-effective. Unchecked, the cloud compute costs of running large models can skyrocket – potentially undermining the business case of the platform. We addressed this by building in cost optimizations from day one, ensuring sustainable growth:
 
-**Intelligent Resource Scaling** The system automatically scales computing resources up and down based on demand. During peak usage, it launches additional model server instances to handle the load. During off-peak times, it spins down extras to save on cloud costs. This elasticity means we only pay for what we need, when we need it.
+- **Intelligent Resource Scaling**: The system automatically scales computing resources up and down based on demand. During peak usage, it launches additional model server instances to handle the load. During off-peak times, it spins down extras to save on cloud costs. This elasticity means we only pay for what we need, when we need it.
 
-**Batching & Caching** Where possible, we batch multiple small requests together and leverage cached results for repeated questions. Batching improves hardware utilization (more throughput per second), and caching means the platform avoids recomputing answers repeatedly – both of which trim the per-request cost.
+- **Batching & Caching**: Where possible, we batch multiple small requests together and leverage cached results for repeated questions. Batching improves hardware utilization (more throughput per second), and caching means the platform avoids recomputing answers repeatedly – both of which trim the per-request cost.
 
-**Optimized Model Usage** We introduced a tiered approach to model deployment. A very large model (for the most complex tasks) is supplemented by smaller, more efficient models for simpler queries. By routing requests intelligently – e.g., easy questions to a lightweight model – the system reduces reliance on the expensive big model, saving compute cycles (and money) while still delivering quality answers.
+- **Optimized Model Usage**: We introduced a tiered approach to model deployment. A very large model (for the most complex tasks) is supplemented by smaller, more efficient models for simpler queries. By routing requests intelligently – e.g., easy questions to a lightweight model – the system reduces reliance on the expensive big model, saving compute cycles (and money) while still delivering quality answers.
 
-**Spot Instances & Reserved Pricing** In our cloud infrastructure, we took advantage of cost-saving options like spot instances (using spare capacity at lower prices) and reserved instances for steady baseline load. This reduced infrastructure expenses significantly without affecting performance.
+- **Spot Instances & Reserved Pricing**: In our cloud infrastructure, we took advantage of cost-saving options like spot instances (using spare capacity at lower prices) and reserved instances for steady baseline load. This reduced infrastructure expenses significantly without affecting performance.
 
 ![AI Business Analytics Dashboard](/attached_assets/generated_images/AI_business_analytics_dashboard_49dcd17a.png)
 

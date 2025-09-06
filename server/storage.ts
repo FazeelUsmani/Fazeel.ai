@@ -155,13 +155,13 @@ Imagine taking a cutting-edge AI model from a lab demo to a core component of a 
 
 ## Results at a Glance
 
-**Real-Time Speed**: Reduced response latency from several seconds to sub-second for lightning-fast user experiences.
+- **Real-Time Speed**: Reduced response latency from several seconds to sub-second for lightning-fast user experiences.
 
-**Cost Efficiency**: Optimized infrastructure to handle growing usage while cutting operating costs (serving more users per dollar).
+- **Cost Efficiency**: Optimized infrastructure to handle growing usage while cutting operating costs (serving more users per dollar).
 
-**High Reliability**: Implemented robust architecture and monitoring, achieving 99.9%+ uptime for mission-critical services.
+- **High Reliability**: Implemented robust architecture and monitoring, achieving 99.9%+ uptime for mission-critical services.
 
-**Scalability**: Designed the system to seamlessly scale from initial launch to millions of requests per day, supporting a multi-billion-dollar business.
+- **Scalability**: Designed the system to seamlessly scale from initial launch to millions of requests per day, supporting a multi-billion-dollar business.
 
 ## From Prototype to Platform: The Challenge
 

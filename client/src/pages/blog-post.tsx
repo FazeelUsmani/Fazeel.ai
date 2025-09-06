@@ -64,21 +64,25 @@ export function BlogPostPage() {
 
   const cleanContent = (text: string) => {
     return text
-      // Remove HTML div tags with text-base class
-      .replace(/<div[^>]*class=["']?text-base["']?[^>]*>/gi, '')
+      // Remove all div tags and their attributes
       .replace(/<div[^>]*>/gi, '')
       .replace(/<\/div>/gi, '')
       // Remove HTML encoded div tags
-      .replace(/&lt;div[^&]*class=["']?text-base["']?[^&]*&gt;/gi, '')
-      .replace(/&lt;\/div&gt;/gi, '')
       .replace(/&lt;div[^&]*&gt;/gi, '')
+      .replace(/&lt;\/div&gt;/gi, '')
+      // Remove all span tags and their attributes
+      .replace(/<span[^>]*>/gi, '')
+      .replace(/<\/span>/gi, '')
       // Remove bold markdown formatting
       .replace(/\*\*(.*?)\*\*/g, '$1')
-      // Remove strong HTML tags
+      // Remove strong and bold HTML tags
       .replace(/<strong[^>]*>(.*?)<\/strong>/gi, '$1')
       .replace(/<b[^>]*>(.*?)<\/b>/gi, '$1')
-      // Clean up extra whitespace
+      // Remove any remaining HTML tags
+      .replace(/<[^>]*>/g, '')
+      // Clean up extra whitespace and line breaks
       .replace(/\s+/g, ' ')
+      .replace(/\n\s*\n/g, '\n')
       .trim();
   };
 
@@ -119,11 +123,19 @@ export function BlogPostPage() {
       if (paragraph.startsWith('## ')) {
         const headingText = cleanContent(paragraph.replace('## ', ''));
         // Check if this should be treated as regular text
-        if (headingText.startsWith('Practical Implementation To concretely illustrate the benefit')) {
+        if (headingText.startsWith('Practical Implementation') || headingText.includes('To concretely illustrate')) {
           return (
-            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base">
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
               {headingText}
             </p>
+          );
+        }
+        // Check if it's actually a subtitle that should be treated as paragraph
+        if (headingText.match(/^(Task-Specific Architecture Design|Advanced Distillation Techniques)/)) {
+          return (
+            <h3 key={index} className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-4 mt-8">
+              {headingText}
+            </h3>
           );
         }
         return (
@@ -158,7 +170,7 @@ export function BlogPostPage() {
               {items.map((item, itemIndex) => {
                 const cleanItem = cleanContent(item.replace('- ', ''));
                 return (
-                  <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
+                  <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed font-normal">
                     {cleanItem}
                   </li>
                 );
@@ -173,7 +185,7 @@ export function BlogPostPage() {
         const cleanParagraph = cleanContent(paragraph);
         if (cleanParagraph) {
           return (
-            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base">
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
               {cleanParagraph}
             </p>
           );

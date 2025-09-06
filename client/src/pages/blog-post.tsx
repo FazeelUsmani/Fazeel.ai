@@ -14,7 +14,7 @@ export function BlogPostPage() {
     queryKey: ['/api/blog', id],
     enabled: !!id,
     staleTime: 0,
-    cacheTime: 0,
+    gcTime: 0,
   });
 
   if (isLoading) {
@@ -189,7 +189,8 @@ export function BlogPostPage() {
         if (cleanParagraph) {
           // Apply text-base styling to specific content sections
           if (cleanParagraph.includes('Instead of using a generic transformer') || 
-              cleanParagraph.includes('We use proprietary knowledge distillation')) {
+              cleanParagraph.includes('We use proprietary knowledge distillation') ||
+              cleanParagraph.includes('Efficient Fine-Tuning (LoRA-X)')) {
             return (
               <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
                 {cleanParagraph}

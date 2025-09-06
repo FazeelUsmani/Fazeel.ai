@@ -130,9 +130,13 @@ export function BlogPostPage() {
             </p>
           );
         }
-        // Skip paragraphs that should be treated as regular content
+        // Render specific paragraphs as regular text with text-base styling
         if (headingText.match(/^(Task-Specific Architecture Design|Advanced Distillation Techniques)/)) {
-          return null;
+          return (
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
+              {headingText}
+            </p>
+          );
         }
         return (
           <h2 key={index} className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-6 mt-10 border-b border-slate-200 dark:border-slate-700 pb-3">

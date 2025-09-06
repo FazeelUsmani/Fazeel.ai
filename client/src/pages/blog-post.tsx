@@ -190,7 +190,10 @@ export function BlogPostPage() {
           // Apply text-base styling to specific content sections
           if (cleanParagraph.includes('Instead of using a generic transformer') || 
               cleanParagraph.includes('We use proprietary knowledge distillation') ||
-              cleanParagraph.includes('Efficient Fine-Tuning (LoRA-X)')) {
+              cleanParagraph.includes('Efficient Fine-Tuning (LoRA-X)') ||
+              cleanParagraph.includes('On-Device Medical Diagnosis') ||
+              cleanParagraph.includes('Real-Time Translation in the Wild') ||
+              cleanParagraph.includes('Privacy-Preserving AI Assistants')) {
             return (
               <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
                 {cleanParagraph}

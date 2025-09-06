@@ -316,14 +316,11 @@ Efficient Fine-Tuning (LoRA-X) Beyond architecture and distillation, we maximize
 
 Specialized small models are already revolutionizing AI deployment across industries:
 
-### On-Device Medical Diagnosis
-A healthcare SLM running entirely on mobile devices is helping doctors in the field. For instance, the MedAide system can analyze symptoms and assist in diagnoses on an NVIDIA Jetson Nano at point-of-care, with no cloud required. This enables medical AI in remote or rural areas – a doctor with a rugged tablet can get AI decision support offline, greatly improving care delivery anywhere. Privacy is a bonus: patient data stays on the device.
+On-Device Medical Diagnosis A healthcare SLM running entirely on mobile devices is helping doctors in the field. For instance, the MedAide system can analyze symptoms and assist in diagnoses on an NVIDIA Jetson Nano at point-of-care, with no cloud required. This enables medical AI in remote or rural areas – a doctor with a rugged tablet can get AI decision support offline, greatly improving care delivery anywhere. Privacy is a bonus: patient data stays on the device.
 
-### Real-Time Translation in the Wild
-Language translation is being transformed by small models at the edge. Instead of calling an online API, new translator apps use on-device SLMs to interpret speech instantly in low-connectivity environments. Imagine a handheld translator or smart earbuds that provide two-way speech translation at a busy market or during disaster response, without needing internet access. By compressing powerful translation abilities into a compact model, we get reliable communication tools that work anytime, anywhere.
+Real-Time Translation in the Wild Language translation is being transformed by small models at the edge. Instead of calling an online API, new translator apps use on-device SLMs to interpret speech instantly in low-connectivity environments. Imagine a handheld translator or smart earbuds that provide two-way speech translation at a busy market or during disaster response, without needing internet access. By compressing powerful translation abilities into a compact model, we get reliable communication tools that work anytime, anywhere.
 
-### Privacy-Preserving AI Assistants
-Smart assistants and chatbots powered by SLMs are running locally to protect user data. For example, a voice assistant for business uses a specialized 5B model that lives on the company's servers and devices only. It can handle employee queries and tasks without sending sensitive info to an external cloud. This approach addresses compliance and security concerns – all AI processing happens in-house. Thanks to the efficiency of SLMs, such an assistant can run on standard hardware and even laptops, maintaining snappy performance. The result: AI that's as private as it is powerful.
+Privacy-Preserving AI Assistants Smart assistants and chatbots powered by SLMs are running locally to protect user data. For example, a voice assistant for business uses a specialized 5B model that lives on the company's servers and devices only. It can handle employee queries and tasks without sending sensitive info to an external cloud. This approach addresses compliance and security concerns – all AI processing happens in-house. Thanks to the efficiency of SLMs, such an assistant can run on standard hardware and even laptops, maintaining snappy performance. The result: AI that's as private as it is powerful.
 
 ## The Future: Small Models, Big Impact
 

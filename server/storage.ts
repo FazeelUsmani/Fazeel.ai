@@ -181,13 +181,13 @@ The first step was designing a future-proof architecture that could grow with de
 
 ![Enterprise AI Platform Architecture](/attached_assets/generated_images/Enterprise_AI_platform_architecture_e9a2b5a9.png)
 
-**Microservice Design** We broke the AI functionality into microservices (for inference, data processing, etc.), allowing independent scaling and updates without downtime.
+- **Microservice Design**: We broke the AI functionality into microservices (for inference, data processing, etc.), allowing independent scaling and updates without downtime.
 
-**Containerized Deployment** Using Docker/Kubernetes, each service can be replicated across multiple nodes. This provides on-demand scalability and resilience – if one instance fails, others seamlessly take over to maintain service.
+- **Containerized Deployment**: Using Docker/Kubernetes, each service can be replicated across multiple nodes. This provides on-demand scalability and resilience – if one instance fails, others seamlessly take over to maintain service.
 
-**API Gateway & Load Balancing** An API gateway routes incoming requests efficiently, while load balancers distribute traffic across instances to prevent any single point from becoming a bottleneck.
+- **API Gateway & Load Balancing**: An API gateway routes incoming requests efficiently, while load balancers distribute traffic across instances to prevent any single point from becoming a bottleneck.
 
-**Caching Layer** We implemented intelligent caching (storing frequent or recent responses) to lighten the load on the GPT model, accelerating responses for repeated queries and reducing compute costs.
+- **Caching Layer**: We implemented intelligent caching (storing frequent or recent responses) to lighten the load on the GPT model, accelerating responses for repeated queries and reducing compute costs.
 
 ![AI Caching System Architecture](/attached_assets/generated_images/AI_caching_system_architecture_13c81adb.png)
 

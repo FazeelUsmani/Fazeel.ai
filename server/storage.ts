@@ -29,6 +29,14 @@ export class MemStorage implements IStorage {
     this.initializeBlogPosts();
   }
 
+  private generateSlugId(title: string): string {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .substring(0, 50);
+  }
+
   private initializeBlogPosts() {
     const samplePosts: InsertBlogPost[] = [
       {
@@ -528,7 +536,7 @@ We've released our multilingual toolkit, enabling researchers worldwide to build
     ];
 
     samplePosts.forEach(post => {
-      const id = randomUUID();
+      const id = this.generateSlugId(post.title);
       const blogPost: BlogPost = {
         ...post,
         id,
@@ -574,7 +582,7 @@ We've released our multilingual toolkit, enabling researchers worldwide to build
   }
 
   async createBlogPost(insertPost: InsertBlogPost): Promise<BlogPost> {
-    const id = randomUUID();
+    const id = this.generateSlugId(insertPost.title);
     const post: BlogPost = {
       ...insertPost,
       id,

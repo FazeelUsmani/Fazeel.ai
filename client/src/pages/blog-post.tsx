@@ -62,6 +62,26 @@ export function BlogPostPage() {
 
   const estimatedReadTime = Math.ceil(post.content.split(' ').length / 200);
 
+  const cleanContent = (text: string) => {
+    return text
+      // Remove HTML div tags with text-base class
+      .replace(/<div[^>]*class=["']?text-base["']?[^>]*>/gi, '')
+      .replace(/<div[^>]*>/gi, '')
+      .replace(/<\/div>/gi, '')
+      // Remove HTML encoded div tags
+      .replace(/&lt;div[^&]*class=["']?text-base["']?[^&]*&gt;/gi, '')
+      .replace(/&lt;\/div&gt;/gi, '')
+      .replace(/&lt;div[^&]*&gt;/gi, '')
+      // Remove bold markdown formatting
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      // Remove strong HTML tags
+      .replace(/<strong[^>]*>(.*?)<\/strong>/gi, '$1')
+      .replace(/<b[^>]*>(.*?)<\/b>/gi, '$1')
+      // Clean up extra whitespace
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
+
   const renderContent = (content: string) => {
     const paragraphs = content.split('\n\n');
 
@@ -89,24 +109,21 @@ export function BlogPostPage() {
 
       // Handle headings
       if (paragraph.startsWith('# ')) {
+        const cleanTitle = cleanContent(paragraph.replace('# ', ''));
         return (
           <h1 key={index} className="text-4xl font-bold text-slate-800 dark:text-slate-200 mb-8 mt-12">
-            {paragraph.replace('# ', '')}
+            {cleanTitle}
           </h1>
         );
       }
       if (paragraph.startsWith('## ')) {
-        // Check if this is the "Practical Implementation" paragraph that should be treated as regular text
-        const headingText = paragraph.replace('## ', '');
+        const headingText = cleanContent(paragraph.replace('## ', ''));
+        // Check if this should be treated as regular text
         if (headingText.startsWith('Practical Implementation To concretely illustrate the benefit')) {
           return (
-            <p
-              key={index}
-              className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base"
-              dangerouslySetInnerHTML={{
-                __html: headingText.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
-              }}
-            />
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base">
+              {headingText}
+            </p>
           );
         }
         return (
@@ -116,16 +133,18 @@ export function BlogPostPage() {
         );
       }
       if (paragraph.startsWith('### ')) {
+        const cleanTitle = cleanContent(paragraph.replace('### ', ''));
         return (
           <h3 key={index} className="text-2xl font-semibold text-slate-800 dark:text-slate-200 mb-4 mt-8">
-            {paragraph.replace('### ', '')}
+            {cleanTitle}
           </h3>
         );
       }
       if (paragraph.startsWith('#### ')) {
+        const cleanTitle = cleanContent(paragraph.replace('#### ', ''));
         return (
           <h4 key={index} className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-3 mt-6">
-            {paragraph.replace('#### ', '')}
+            {cleanTitle}
           </h4>
         );
       }
@@ -136,38 +155,29 @@ export function BlogPostPage() {
         if (items.length > 0) {
           return (
             <ul key={index} className="space-y-3 ml-6 my-6">
-              {items.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
-                  <span dangerouslySetInnerHTML={{
-                    __html: item.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
-                  }} />
-                </li>
-              ))}
+              {items.map((item, itemIndex) => {
+                const cleanItem = cleanContent(item.replace('- ', ''));
+                return (
+                  <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed">
+                    {cleanItem}
+                  </li>
+                );
+              })}
             </ul>
           );
         }
       }
 
-
-
       // Handle regular paragraphs
       if (paragraph.trim() && !paragraph.startsWith('#')) {
-        return (
-          <p
-            key={index}
-            className="text-slate-600 dark:text-slate-300 leading-relaxed mb-3 text-base"
-            dangerouslySetInnerHTML={{
-              __html: paragraph
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-800 dark:text-slate-200 font-semibold">$1</strong>')
-                .replace(/<div[^>]*class=["']?text-base["']?[^>]*>/gi, '')
-                .replace(/<div[^>]*>/gi, '')
-                .replace(/<\/div>/gi, '')
-                .replace(/&lt;div[^&]*class=["']?text-base["']?[^&]*&gt;/gi, '')
-                .replace(/&lt;\/div&gt;/gi, '')
-                .replace(/&lt;div[^&]*&gt;/gi, '')
-            }}
-          />
-        );
+        const cleanParagraph = cleanContent(paragraph);
+        if (cleanParagraph) {
+          return (
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-base">
+              {cleanParagraph}
+            </p>
+          );
+        }
       }
 
       return null;

@@ -185,6 +185,15 @@ export function BlogPostPage() {
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         const cleanParagraph = cleanContent(paragraph);
         if (cleanParagraph) {
+          // Apply text-base styling to specific content sections
+          if (cleanParagraph.includes('Instead of using a generic transformer') || 
+              cleanParagraph.includes('We use proprietary knowledge distillation')) {
+            return (
+              <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
+                {cleanParagraph}
+              </p>
+            );
+          }
           return (
             <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
               {cleanParagraph}

@@ -131,7 +131,8 @@ export function BlogPostPage() {
           );
         }
         // Render specific paragraphs as regular text with text-base styling
-        if (headingText.match(/^(Task-Specific Architecture Design|Advanced Distillation Techniques)/)) {
+        if (headingText.includes('Task-Specific Architecture Design') || 
+            headingText.includes('Advanced Distillation Techniques')) {
           return (
             <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base">
               {headingText}

@@ -11,7 +11,7 @@ export function BlogPostPage() {
   const { id } = useParams();
 
   const { data: post, isLoading, error } = useQuery<BlogPost>({
-    queryKey: ['/api/blog', id, Date.now()],
+    queryKey: ['/api/blog', id],
     enabled: !!id,
   });
 

@@ -227,8 +227,6 @@ An AI platform of this scale must not only be fast, but also cost-effective. Unc
 
 - **Spot Instances & Reserved Pricing**: In our cloud infrastructure, we took advantage of cost-saving options like spot instances (using spare capacity at lower prices) and reserved instances for steady baseline load. This reduced infrastructure expenses significantly without affecting performance.
 
-![AI Business Analytics Dashboard](/attached_assets/generated_images/AI_business_analytics_dashboard_49dcd17a.png)
-
 ![Global AI Deployment Network](/attached_assets/generated_images/Global_AI_deployment_network_e57e4b1c.png)
 
 Through these measures, the platform achieved economies of scale. As usage grew 10x, the costs did not grow at the same rate – in fact, our optimizations led to a lower cost per transaction. The business could support millions of AI-driven interactions within a predictable budget, turning what could have been a cost center into a high-ROI investment.

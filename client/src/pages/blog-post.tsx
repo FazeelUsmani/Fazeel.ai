@@ -133,9 +133,9 @@ export function BlogPostPage() {
         // Check if it's actually a subtitle that should be treated as paragraph
         if (headingText.match(/^(Task-Specific Architecture Design|Advanced Distillation Techniques)/)) {
           return (
-            <h3 key={index} className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-4 mt-8">
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
               {headingText}
-            </h3>
+            </p>
           );
         }
         return (

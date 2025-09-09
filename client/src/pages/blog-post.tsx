@@ -75,13 +75,10 @@ export function BlogPostPage() {
       // Remove all span tags and their attributes
       .replace(/<span[^>]*>/gi, '')
       .replace(/<\/span>/gi, '')
-      // Remove bold markdown formatting
-      .replace(/\*\*(.*?)\*\*/g, '$1')
-      // Remove strong and bold HTML tags
-      .replace(/<strong[^>]*>(.*?)<\/strong>/gi, '$1')
-      .replace(/<b[^>]*>(.*?)<\/b>/gi, '$1')
-      // Remove any remaining HTML tags
-      .replace(/<[^>]*>/g, '')
+      // Convert bold markdown formatting to HTML
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      // Remove any remaining HTML tags except strong and b tags
+      .replace(/<(?!\/?(strong|b)\b)[^>]*>/g, '')
       // Clean up extra whitespace and line breaks
       .replace(/\s+/g, ' ')
       .replace(/\n\s*\n/g, '\n')
@@ -201,8 +198,7 @@ export function BlogPostPage() {
             );
           }
           return (
-            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
-              {cleanParagraph}
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal" dangerouslySetInnerHTML={{ __html: cleanParagraph }}>
             </p>
           );
         }

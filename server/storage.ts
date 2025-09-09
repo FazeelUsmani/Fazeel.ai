@@ -46,7 +46,7 @@ export class MemStorage implements IStorage {
 
 ## Introduction: Scaling Beyond 100 Billion Parameters
 
-In recent years, we have witnessed an explosion in the scale of language models – from the tens of billions of parameters in early GPT models to hundreds of billions in today's state-of-the-art. Models like OpenAI's GPT-3 (175 billion parameters) and Google's PaLM (540 billion) have demonstrated that bigger can be better, unlocking remarkable few-shot learning and reasoning capabilities. This scale has enabled language models to achieve near human-level performance on certain benchmarks and tackle complex tasks that were previously out of reach.
+In recent years, we have witnessed an explosion in the scale of language models – from the tens of billions of parameters in early GPT models to **hundreds of billions** in today's state-of-the-art. Models like OpenAI's **GPT-3** (175 billion parameters) and Google's **PaLM** (540 billion) have demonstrated that bigger can be better, unlocking remarkable few-shot learning and reasoning capabilities. This scale has enabled language models to achieve near human-level performance on certain benchmarks and tackle complex tasks that were previously out of reach.
 
 For example, GPT-3 advanced the state of the art by 18% on the LAMBADA language understanding task simply by virtue of its size and few-shot learning ability. Likewise, PaLM 540B outperformed fine-tuned state-of-the-art models on multi-step reasoning and even exceeded average human performance on the BIG-bench benchmark.
 

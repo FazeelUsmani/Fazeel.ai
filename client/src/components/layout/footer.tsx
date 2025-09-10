@@ -95,7 +95,7 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <span>📱</span>
-                <span className="text-white">+1(347) 283-5184</span>
+                <span className="text-white">+1 (347) 283-5184</span>
               </li>
               <li className="flex items-center space-x-2">
                 <span>📍</span>

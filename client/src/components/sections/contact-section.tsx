@@ -60,20 +60,20 @@ export function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'fazeelusmani18@gmail.com',
-      href: 'mailto:fazeelusmani18@gmail.com',
+      value: 'contact@fazeel.ai',
+      href: 'mailto:contact@fazeel.ai',
       color: 'blue',
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 (888) 616-4248',
+      value: '+1 347-283-5184',
       color: 'purple',
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Hyderabad, India',
+      value: 'New York City, United States',
       color: 'emerald',
     },
     {

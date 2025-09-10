@@ -1,21 +1,38 @@
 import { useParams, Link } from 'wouter';
-import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Calendar, User, Clock, Share2, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { BlogPost } from '@shared/schema';
+import { getBlogPost } from '@/lib/staticData';
+import { useEffect, useState } from 'react';
 
 export function BlogPostPage() {
   const { id } = useParams();
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
-  const { data: post, isLoading, error } = useQuery<BlogPost>({
-    queryKey: ['/api/blog', id],
-    enabled: !!id,
-    staleTime: 0,
-    gcTime: 0,
-  });
+  useEffect(() => {
+    if (!id) return;
+
+    const loadPost = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const blogPost = await getBlogPost(id);
+        setPost(blogPost);
+      } catch (err) {
+        console.error('Error loading blog post:', err);
+        setError(err instanceof Error ? err : new Error('Failed to load blog post'));
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPost();
+  }, [id]);
 
   if (isLoading) {
     return (

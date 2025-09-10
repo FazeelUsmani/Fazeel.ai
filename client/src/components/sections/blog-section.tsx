@@ -2,10 +2,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { useQuery } from '@tanstack/react-query';
 import { Brain, TrendingUp, BarChart, Rocket, User, ArrowRight } from 'lucide-react';
-import { BlogPost } from '@shared/schema';
 import { Link } from 'wouter';
+import { getFeaturedBlogPosts, type BlogPostMetadata } from '@/lib/staticData';
+import { useEffect, useState } from 'react';
 
 const categoryIcons = {
   'LLM Research': Brain,
@@ -34,9 +34,24 @@ const heroColors = {
 };
 
 export function BlogSection() {
-  const { data: blogPosts = [], isLoading } = useQuery<BlogPost[]>({
-    queryKey: ['/api/blog/featured'],
-  });
+  const [blogPosts, setBlogPosts] = useState<BlogPostMetadata[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Load static blog posts data
+    const loadBlogPosts = async () => {
+      try {
+        const featuredPosts = await getFeaturedBlogPosts();
+        setBlogPosts(featuredPosts);
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    loadBlogPosts();
+  }, []);
 
   const formatDate = (date: string | Date) => {
     return new Date(date).toLocaleDateString('en-US', {

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "from-gpt-to-production-building-a-multi-billion-dollar-ai-platform-at-scale",
+    "title": "From GPT to Production: Building a Multi-Billion Dollar AI Platform at Scale",
+    "excerpt": "How we built and scaled an enterprise AI platform processing 5 billion tokens daily, serving Fortune 500 companies with 99.99% uptime and sub-100ms latency.",
+    "author": "Fazeel Usmani",
+    "category": "Case Study",
+    "tags": [
+      "Enterprise AI",
+      "Platform Engineering",
+      "Scalability",
+      "Production Systems",
+      "MLOps"
+    ],
+    "publishedAt": "2025-09-09T19:23:01.261Z",
+    "featured": true
+  },
+  {
+    "id": "rag-systems-that-actually-work-combining-retrieval-and-generation-for-enterprise-ai",
+    "title": "RAG Systems That Actually Work: Combining Retrieval and Generation for Enterprise AI",
+    "excerpt": "Retrieval-Augmented Generation promises to solve hallucination and keep AI grounded in facts. Here's how we built a RAG system handling 10TB of enterprise documents.",
+    "author": "Fazeel Usmani",
+    "category": "LLM Research",
+    "tags": [
+      "RAG",
+      "Information Retrieval",
+      "Enterprise AI",
+      "Vector Search",
+      "Knowledge Management"
+    ],
+    "publishedAt": "2025-09-08T03:44:18.658Z",
+    "featured": null
+  },
+  {
+    "id": "attention-is-all-you-need-but-speed-is-what-you-want-optimizing-transformers-for-production",
+    "title": "Attention Is All You Need, But Speed Is What You Want: Optimizing Transformers for Production",
+    "excerpt": "Learn how we achieved 10x speedup in transformer inference through kernel fusion, dynamic sparsity, and our breakthrough FlashAttention-V3 implementation.",
+    "author": "Fazeel Usmani",
+    "category": "LLM Research",
+    "tags": [
+      "Transformers",
+      "Optimization",
+      "CUDA",
+      "Production",
+      "Performance"
+    ],
+    "publishedAt": "2025-09-06T05:57:35.223Z",
+    "featured": null
+  },
+  {
+    "id": "conversational-ai-that-actually-converses-building-context-aware-dialog-systems",
+    "title": "Conversational AI That Actually Converses: Building Context-Aware Dialog Systems",
+    "excerpt": "Moving beyond simple chatbots to create AI systems that maintain context, understand nuance, and engage in meaningful multi-turn conversations.",
+    "author": "Fazeel Usmani",
+    "category": "NLP Insights",
+    "tags": [
+      "Conversational AI",
+      "Dialog Systems",
+      "NLU",
+      "Context Management",
+      "Chatbots"
+    ],
+    "publishedAt": "2025-09-05T00:43:43.522Z",
+    "featured": null
+  },
+  {
+    "id": "breaking-the-100b-parameter-barrier-efficient-training-strategies-for-ultra-large-language-models",
+    "title": "Breaking the 100B Parameter Barrier: Efficient Training Strategies for Ultra-Large Language Models",
+    "excerpt": "Discover how we reduced training costs by 70% while achieving state-of-the-art performance on 175B parameter models using innovative gradient checkpointing, mixed-precision training, and advanced parallelism strategies.",
+    "author": "Fazeel Usmani",
+    "category": "LLM Research",
+    "tags": [
+      "LLM",
+      "Training Optimization",
+      "Deep Learning",
+      "Distributed Computing",
+      "Cost Reduction"
+    ],
+    "publishedAt": "2025-08-19T11:12:03.565Z",
+    "featured": true
+  },
+  {
+    "id": "multilingual-nlp-at-scale-processing-100-languages-with-a-single-model",
+    "title": "Multilingual NLP at Scale: Processing 100+ Languages with a Single Model",
+    "excerpt": "How we built a unified multilingual system that handles over 100 languages with state-of-the-art performance, enabling global AI deployment.",
+    "author": "Fazeel Usmani",
+    "category": "NLP Insights",
+    "tags": [
+      "Multilingual NLP",
+      "Cross-lingual",
+      "Global AI",
+      "Low-resource Languages"
+    ],
+    "publishedAt": "2025-08-16T04:06:32.013Z",
+    "featured": null
+  },
+  {
+    "id": "the-rise-of-specialized-small-language-models-why-bigger-isn-t-always-better",
+    "title": "The Rise of Specialized Small Language Models: Why Bigger Isn't Always Better",
+    "excerpt": "Our research shows that specialized 7B parameter models can outperform GPT-4 on domain-specific tasks while running on edge devices. Here's how we're revolutionizing AI deployment.",
+    "author": "Fazeel Usmani",
+    "category": "AI Trends",
+    "tags": [
+      "SLM",
+      "Edge AI",
+      "Model Efficiency",
+      "Specialized Models",
+      "Future of AI"
+    ],
+    "publishedAt": "2025-08-14T18:46:40.645Z",
+    "featured": true
+  }
+]

@@ -157,7 +157,7 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-slate-400 text-sm">
-            © 2023 Fazeel AI Solutions. All rights reserved.
+            © 2025 Fazeel AI Solutions. All rights reserved.
           </div>
           <div className="flex space-x-6 text-sm text-slate-400 mt-4 md:mt-0">
             <a href="#" className="hover:text-blue-400 transition-colors duration-200" data-testid="link-footer-privacy">Privacy Policy</a>

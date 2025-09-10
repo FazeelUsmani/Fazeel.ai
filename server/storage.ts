@@ -111,6 +111,7 @@ Another cornerstone of efficient large-scale training is mixed-precision trainin
 - **Hardware Acceleration**: Today, most large-model training runs in FP16 (half-precision) or bfloat16 for the bulk of tensor operations. Modern GPUs (NVIDIA V100, A100, H100, etc.) have specialized hardware (Tensor Cores) that can perform FP16/BF16 matrix math much faster than FP32. The speedups are substantial – for example, enabling FP16 mixed precision nearly doubled training throughput in a benchmark case, compared to full FP32 training.
 
 ### Smart Precision Management
+
 Importantly, certain parts of the training process are kept in higher precision to avoid numerical issues. A common approach (used in NVIDIA's AMP – Automatic Mixed Precision) is:
 
 - Perform forward and backward computations in FP16 (or BF16), except for operations known to require higher precision

@@ -60,26 +60,36 @@ export function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'contact@fazeel.ai',
-      href: 'mailto:contact@fazeel.ai',
+      items: [
+        { label: 'General:', value: 'contact@fazeel.ai', href: 'mailto:contact@fazeel.ai' },
+        { label: 'Support:', value: 'support@fazeel.ai', href: 'mailto:support@fazeel.ai' }
+      ],
       color: 'blue',
     },
     {
       icon: Phone,
-      title: 'Phone',
-      value: '+1 347-283-5184',
+      title: 'Phone / WhatsApp',
+      items: [
+        { label: '', value: '+1 347-283-5184 (US)' },
+        { label: '', value: '+91 98765 43210 (India)' }
+      ],
       color: 'purple',
     },
     {
       icon: MapPin,
-      title: 'Location',
-      value: 'New York City, United States',
+      title: 'Offices',
+      items: [
+        { label: '', value: 'New York City, United States' },
+        { label: '', value: 'Hyderabad, India' }
+      ],
       color: 'emerald',
     },
     {
       icon: Clock,
       title: 'Response Time',
-      value: 'Within 24 hours',
+      items: [
+        { label: '', value: 'Within 24 hours' }
+      ],
       color: 'rose',
     },
   ];
@@ -122,17 +132,26 @@ export function ContactSection() {
                         <IconComponent className="h-5 w-5" />
                       </div>
                       <div>
-                        <div className="font-semibold text-slate-800 dark:text-slate-200">{item.title}</div>
-                        {'href' in item ? (
-                          <a 
-                            href={item.href} 
-                            className="text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <div className="text-slate-600 dark:text-slate-300">{item.value}</div>
-                        )}
+                        <div className="font-semibold text-slate-800 dark:text-slate-200 mb-1">{item.title}</div>
+                        <div className="space-y-1">
+                          {item.items.map((subItem, subIndex) => (
+                            <div key={subIndex} className="flex items-center space-x-2">
+                              {subItem.label && (
+                                <span className="text-sm text-slate-500 dark:text-slate-400">{subItem.label}</span>
+                              )}
+                              {'href' in subItem ? (
+                                <a 
+                                  href={subItem.href} 
+                                  className="text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                                >
+                                  {subItem.value}
+                                </a>
+                              ) : (
+                                <div className="text-slate-600 dark:text-slate-300">{subItem.value}</div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   );
@@ -250,7 +269,8 @@ export function ContactSection() {
                             <FormControl>
                               <Input 
                                 placeholder="Your Company" 
-                                {...field} 
+                                {...field}
+                                value={field.value || ''}
                                 className="bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600"
                                 data-testid="input-company"
                               />

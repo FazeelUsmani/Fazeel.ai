@@ -85,44 +85,43 @@ export function BlogSection() {
               const categoryColor = categoryColors[post.category as keyof typeof categoryColors] || 'bg-blue-100 text-blue-600';
 
               return (
-                <Card 
-                  key={post.id}
-                  className="group bg-white dark:bg-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-700"
-                  data-testid={`card-blog-post-${index}`}
-                >
-                  {/* Hero Image */}
-                  <div className={`h-48 bg-gradient-to-br ${heroColor} flex items-center justify-center relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="relative z-10 text-white text-center">
-                      <IconComponent className="h-12 w-12 mb-2 mx-auto" />
-                      <div className="text-sm font-medium">Featured Article</div>
-                    </div>
-                  </div>
-                  
-                  <CardHeader>
-                    <div className="flex items-center space-x-2 mb-3">
-                      <Badge className={`${categoryColor} text-xs font-medium border-0`}>
-                        {post.category}
-                      </Badge>
-                      <span className="text-slate-400 text-sm">{formatDate(post.publishedAt!)}</span>
-                    </div>
-                    <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                      {post.title}
-                    </CardTitle>
-                    <CardDescription className="text-slate-600 dark:text-slate-300 line-clamp-3">
-                      {post.excerpt}
-                    </CardDescription>
-                  </CardHeader>
-                  
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                          <User className="h-4 w-4 text-white" />
-                        </div>
-                        <span className="text-sm text-slate-600 dark:text-slate-300">{post.author}</span>
+                <Link href={`/blog/${post.id}`} key={post.id}>
+                  <Card 
+                    className="group bg-white dark:bg-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                    data-testid={`card-blog-post-${index}`}
+                  >
+                    {/* Hero Image */}
+                    <div className={`h-48 bg-gradient-to-br ${heroColor} flex items-center justify-center relative overflow-hidden`}>
+                      <div className="absolute inset-0 bg-black/20"></div>
+                      <div className="relative z-10 text-white text-center">
+                        <IconComponent className="h-12 w-12 mb-2 mx-auto" />
+                        <div className="text-sm font-medium">Featured Article</div>
                       </div>
-                      <Link href={`/blog/${post.id}`}>
+                    </div>
+                    
+                    <CardHeader>
+                      <div className="flex items-center space-x-2 mb-3">
+                        <Badge className={`${categoryColor} text-xs font-medium border-0`}>
+                          {post.category}
+                        </Badge>
+                        <span className="text-slate-400 text-sm">{formatDate(post.publishedAt!)}</span>
+                      </div>
+                      <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                        {post.title}
+                      </CardTitle>
+                      <CardDescription className="text-slate-600 dark:text-slate-300 line-clamp-3">
+                        {post.excerpt}
+                      </CardDescription>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                            <User className="h-4 w-4 text-white" />
+                          </div>
+                          <span className="text-sm text-slate-600 dark:text-slate-300">{post.author}</span>
+                        </div>
                         <Button 
                           variant="ghost" 
                           size="sm"
@@ -131,10 +130,10 @@ export function BlogSection() {
                         >
                           Read More <ArrowRight className="ml-1 h-4 w-4" />
                         </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>

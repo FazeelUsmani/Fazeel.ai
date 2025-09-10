@@ -75,14 +75,23 @@ export function BlogPostPage() {
       // Remove all span tags and their attributes
       .replace(/<span[^>]*>/gi, '')
       .replace(/<\/span>/gi, '')
-      // Convert bold markdown formatting to HTML
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       // Remove any remaining HTML tags except strong and b tags
       .replace(/<(?!\/?(strong|b)\b)[^>]*>/g, '')
       // Clean up extra whitespace and line breaks
       .replace(/\s+/g, ' ')
       .replace(/\n\s*\n/g, '\n')
       .trim();
+  };
+
+  const renderTextWithMarkdown = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        const boldText = part.slice(2, -2);
+        return <strong key={index} className="font-semibold">{boldText}</strong>;
+      }
+      return part;
+    });
   };
 
   const renderContent = (content: string) => {
@@ -171,7 +180,7 @@ export function BlogPostPage() {
                 const cleanItem = cleanContent(item.replace('- ', ''));
                 return (
                   <li key={itemIndex} className="text-slate-600 dark:text-slate-300 list-disc text-base leading-relaxed font-normal">
-                    {cleanItem}
+                    {renderTextWithMarkdown(cleanItem)}
                   </li>
                 );
               })}
@@ -184,21 +193,9 @@ export function BlogPostPage() {
       if (paragraph.trim() && !paragraph.startsWith('#')) {
         const cleanParagraph = cleanContent(paragraph);
         if (cleanParagraph) {
-          // Apply text-base styling to specific content sections
-          if (cleanParagraph.includes('Instead of using a generic transformer') || 
-              cleanParagraph.includes('We use proprietary knowledge distillation') ||
-              cleanParagraph.includes('Efficient Fine-Tuning (LoRA-X)') ||
-              cleanParagraph.includes('On-Device Medical Diagnosis') ||
-              cleanParagraph.includes('Real-Time Translation in the Wild') ||
-              cleanParagraph.includes('Privacy-Preserving AI Assistants')) {
-            return (
-              <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
-                {cleanParagraph}
-              </p>
-            );
-          }
           return (
-            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal" dangerouslySetInnerHTML={{ __html: cleanParagraph }}>
+            <p key={index} className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base font-normal">
+              {renderTextWithMarkdown(cleanParagraph)}
             </p>
           );
         }

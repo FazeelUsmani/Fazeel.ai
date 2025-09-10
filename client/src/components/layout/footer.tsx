@@ -99,7 +99,7 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <span>📍</span>
-                <span className="text-white">New York, United States</span>
+                <span className="text-white">New York City, United States</span>
               </li>
             </ul>
             

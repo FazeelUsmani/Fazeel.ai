@@ -88,20 +88,49 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-slate-300 dark:text-slate-300">
-              <li className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-blue-400" />
-                <a href="mailto:fazeelusmani18@gmail.com" className="text-white dark:text-white hover:text-blue-400 transition-colors font-medium">fazeelusmani18@gmail.com</a>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span>📱</span>
-                <span className="text-white">+1 (347) 283-5184</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span>📍</span>
-                <span className="text-white">New York City, United States</span>
-              </li>
-            </ul>
+            <div className="space-y-4 text-slate-300 dark:text-slate-300">
+              {/* Email */}
+              <div>
+                <div className="flex items-center space-x-2 mb-2">
+                  <span>📧</span>
+                  <span className="text-white font-medium">Email</span>
+                </div>
+                <div className="ml-6 space-y-1">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm">General:</span>
+                    <a href="mailto:contact@fazeel.ai" className="text-white hover:text-blue-400 transition-colors font-medium">contact@fazeel.ai</a>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm">Support:</span>
+                    <a href="mailto:support@fazeel.ai" className="text-white hover:text-blue-400 transition-colors font-medium">support@fazeel.ai</a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div>
+                <div className="flex items-center space-x-2 mb-2">
+                  <span>📞</span>
+                  <span className="text-white font-medium">Phone / WhatsApp</span>
+                </div>
+                <div className="ml-6 space-y-1">
+                  <div className="text-white">+1 347-283-5184 (US)</div>
+                  <div className="text-white">+91 98765 43210 (India)</div>
+                </div>
+              </div>
+
+              {/* Offices */}
+              <div>
+                <div className="flex items-center space-x-2 mb-2">
+                  <span>📍</span>
+                  <span className="text-white font-medium">Offices</span>
+                </div>
+                <div className="ml-6 space-y-1">
+                  <div className="text-white">New York City, United States</div>
+                  <div className="text-white">Hyderabad, India</div>
+                </div>
+              </div>
+            </div>
             
             {/* Newsletter Signup */}
             <div className="mt-6">

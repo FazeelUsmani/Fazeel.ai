@@ -71,7 +71,7 @@ function parseMarkdown(markdown: string): BlogPost {
     author: frontmatter.author,
     category: frontmatter.category,
     tags: frontmatter.tags,
-    publishedAt: new Date(frontmatter.publishedAt),
+    publishedAt: frontmatter.publishedAt,
     featured: frontmatter.featured,
   };
 }
